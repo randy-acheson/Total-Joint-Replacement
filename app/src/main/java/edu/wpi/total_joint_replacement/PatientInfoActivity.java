@@ -2,6 +2,7 @@ package edu.wpi.total_joint_replacement;
 
 import java.util.Locale;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
@@ -115,6 +116,13 @@ public class PatientInfoActivity extends AppCompatActivity implements ActionBar.
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        this.startActivity(mainIntent);
+        this.finish();
     }
 
     /**
