@@ -1,0 +1,239 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.wpi.total_joint_replacement.GeneralInfoFragment"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Name: "
+            android:id="@+id/nameView"
+            android:layout_alignTop="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/editText"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text=""
+            android:ems="10"
+            android:id="@+id/editText"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/nameView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Age: "
+            android:id="@+id/textView"
+            android:layout_below="@+id/nameView"
+            android:layout_alignLeft="@+id/nameView"
+            android:layout_marginTop="20dp"
+            android:layout_alignStart="@+id/nameView"
+            android:layout_alignBottom="@+id/editText2"
+            android:gravity="center" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:gravity="center"
+            android:layout_below="@+id/editText"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_alignRight="@+id/editText"
+            android:layout_alignEnd="@+id/editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender:"
+        android:layout_marginTop="20dp"
+        android:id="@+id/genderText"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/genderSpinner"
+        android:layout_marginTop="5dp"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/genderText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Height (inches):"
+            android:id="@+id/heightView"
+            android:layout_below="@+id/genderSpinner"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_alignBottom="@+id/editHeight"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editHeight"
+            android:gravity="center"
+            android:layout_below="@+id/genderSpinner"
+            android:layout_alignRight="@+id/genderSpinner"
+            android:layout_marginTop="20dp"
+            android:layout_alignEnd="@+id/genderSpinner"
+            android:layout_toEndOf="@+id/heightView"
+            android:layout_toRightOf="@+id/heightView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Weight (lbs):"
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:layout_below="@+id/heightView"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/heightView"
+            android:layout_alignStart="@+id/heightView"
+            android:layout_alignBottom="@+id/editText3" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_below="@+id/heightView"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_alignRight="@+id/editHeight"
+            android:layout_alignEnd="@+id/editHeight" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Appointment:"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView3"
+            android:gravity="center"
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editText4"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/imageButton"
+            android:layout_toStartOf="@+id/imageButton" />
+
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:layout_alignBottom="@+id/editText4"
+            android:src="@drawable/ic_action_event"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/editText4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Ethnicity:"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/editText4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_marginTop="5dp"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Language: "
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView5"
+            android:layout_below="@+id/spinner"
+            android:layout_alignParentLeft="true"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_marginTop="5dp"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/textView5"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+</RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

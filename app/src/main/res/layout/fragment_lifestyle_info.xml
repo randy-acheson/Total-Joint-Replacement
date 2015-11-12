@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.wpi.total_joint_replacement.LifestyleInfoFragment"
+    android:padding="10dp">
+
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you smoke?"
+        android:id="@+id/smokeSwitch"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:checked="false"
+        android:textOn="Yes"
+        android:textOff="No"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you suffering from any other diseases?"
+        android:id="@+id/diseasesSwitch"
+        android:layout_below="@+id/smokeSwitch"
+        android:layout_alignLeft="@+id/smokeSwitch"
+        android:layout_alignStart="@+id/smokeSwitch"
+        android:layout_alignRight="@+id/smokeSwitch"
+        android:layout_alignEnd="@+id/smokeSwitch"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:checked="false"
+        android:layout_marginTop="40dp"
+        android:textOn="Yes"
+        android:textOff="No"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/diseasesText"
+        android:layout_below="@+id/diseasesSwitch"
+        android:layout_alignLeft="@+id/diseasesSwitch"
+        android:layout_alignStart="@+id/diseasesSwitch"
+        android:layout_alignRight="@+id/diseasesSwitch"
+        android:layout_alignEnd="@+id/diseasesSwitch"
+        android:hint="If yes, please list them here."/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you using any assistive devices? "
+        android:id="@+id/devicesSwitch"
+        android:layout_below="@+id/diseasesText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/diseasesText"
+        android:layout_alignEnd="@+id/diseasesText"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:checked="false"
+        android:layout_marginTop="40dp"
+        android:textOn="Yes"
+        android:textOff="No"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/devicesText"
+        android:layout_below="@+id/devicesSwitch"
+        android:layout_alignLeft="@+id/devicesSwitch"
+        android:layout_alignStart="@+id/devicesSwitch"
+        android:layout_alignRight="@+id/devicesSwitch"
+        android:layout_alignEnd="@+id/devicesSwitch"
+        android:hint="If yes, please list them here." />
+</RelativeLayout>
