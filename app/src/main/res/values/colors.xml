@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="action_bar_color">#00A3CC</color>
+    <color name="default_button_color">#5F6F7E</color>
+    <color name="default_button_color_pressed">#5F6F7E</color>
+    <color name="default_button_color_disabled">#C2CAD1</color>
+    <color name="default_button_text_color">#FFFFFF</color>
 </resources>

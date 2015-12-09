@@ -26,6 +26,11 @@
             android:name=".PatientInfoActivity"
             android:label="@string/title_activity_patient_info" >
         </activity>
+
+        <activity
+            android:name=".activities.RecordPainActivity"
+            android:label="@string/title_activity_pain_record" >
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
