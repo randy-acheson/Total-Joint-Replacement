@@ -19,8 +19,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Record"
-        android:id="@+id/record_button"
+        android:text="Record\nPain"
+        android:id="@+id/pain_button"
         android:drawableTop="@drawable/record_48dp"
         android:layout_alignRight="@id/strut"
         android:layout_alignBottom="@id/strut"
@@ -30,12 +30,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        android:id="@+id/profile_button"
+        android:text="Record\nActivity"
+        android:id="@+id/activity_button"
         android:drawableTop="@drawable/profile_48dp"
         android:onClick="openProfile"
         android:layout_alignLeft="@id/strut"
-        android:layout_alignTop="@+id/record_button"
+        android:layout_alignTop="@+id/pain_button"
         android:layout_marginLeft="20dp" />
 
     <Button
@@ -44,20 +44,20 @@
         android:text="Report"
         android:id="@+id/report_button"
         android:drawableTop="@drawable/report_48dp"
-        android:layout_below="@+id/profile_button"
-        android:layout_alignRight="@+id/profile_button"
-        android:layout_alignEnd="@+id/profile_button"
+        android:layout_below="@+id/activity_button"
+        android:layout_alignRight="@+id/activity_button"
+        android:layout_alignEnd="@+id/activity_button"
         android:layout_marginTop="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity"
-        android:id="@+id/physical_activity_button"
+        android:text="Pain\nManagement"
+        android:id="@+id/pain_management_button"
         android:drawableTop="@drawable/activity_48dp"
         android:layout_alignBottom="@+id/report_button"
-        android:layout_alignRight="@+id/record_button"
-        android:layout_alignEnd="@+id/record_button" />
+        android:layout_alignRight="@+id/pain_button"
+        android:layout_alignEnd="@+id/pain_button" />
 
     <Button
         android:layout_width="wrap_content"
