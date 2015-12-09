@@ -18,10 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    public void openProfile(View view) {
-        Intent newPage = new Intent(getApplicationContext(), PatientInfoActivity.class);
+    public void openRecordPain(View view) {
+        /*Intent newPage = new Intent(getApplicationContext(), PatientInfoActivity.class);
         startActivity(newPage);
-        finish();
+        finish(); */
+    }
+
+    public void openRecordActivity(View view) {
+    }
+
+    public void openPainManagement(View view) {
+    }
+
+    public void openReport(View view) {
     }
 
 }
