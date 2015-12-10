@@ -13,18 +13,20 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/statusUpdatePager"
         android:layout_width="match_parent"
-        android:layout_height="476dp" />
+        android:layout_height="476dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/prevButton"
         android:text="Return"
-        android:id="@+id/statusPreviousButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="previousButtonClick"
         android:background="@drawable/button"
         android:textColor="@color/default_button_text_color" />
+
+
 
 </RelativeLayout>

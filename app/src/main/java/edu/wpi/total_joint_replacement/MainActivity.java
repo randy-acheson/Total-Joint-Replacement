@@ -40,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
     public void openReport(View view) {
     }
 
+    public void openMore(View view){
+
+    }
+
+    public void openHome(View view){
+
+    }
+
     public static void returnToMainActivity(boolean askForConfirmation, final Activity activity){
         if(!askForConfirmation) {
             Intent mainIntent = new Intent(activity, MainActivity.class);

@@ -45,7 +45,7 @@ public class RecordActivityActivity extends AppCompatActivity {
 
 
         nextButton = new Button(this);
-        previousButton = (Button) findViewById(R.id.statusPreviousButton);
+        previousButton = (Button) findViewById(R.id.prevButton);
         ArrayList<android.support.v4.app.Fragment> pages = new ArrayList<>();
 
         pages.add(mainFragment);
