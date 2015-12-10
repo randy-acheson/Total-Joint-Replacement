@@ -32,6 +32,10 @@
             android:label="@string/title_activity_pain_record" >
         </activity>
         <activity
+            android:name=".activities.RecordActivityActivity"
+            android:label="@string/title_activity_activity_record" >
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" >

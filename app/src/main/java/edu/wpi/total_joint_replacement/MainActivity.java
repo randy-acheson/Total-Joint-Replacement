@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import edu.wpi.total_joint_replacement.activities.RecordActivityActivity;
 import edu.wpi.total_joint_replacement.activities.RecordPainActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openRecordActivity(View view) {
+        Intent newPage = new Intent(getApplicationContext(), RecordActivityActivity.class);
+        startActivity(newPage);
+        finish();
     }
 
     public void openPainManagement(View view) {
