@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:state_enabled="false" android:left="6dp" android:right="6dp" android:top="6dp" android:bottom="6dp" >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
+            <solid android:color="@color/default_button_color_disabled"/>
+            <corners
+                android:radius="7dp"
+                />
+        </shape>
+    </item>
+
+    <item android:state_pressed="true" android:left="6dp" android:right="6dp" android:top="6dp" android:bottom="6dp">
+        <shape  >
+            <solid android:color="@color/action_bar_color"/>
+            <corners
+                android:radius="7dp"/>
+        </shape>
+    </item>
+
+    <item android:state_focused="true" android:left="6dp" android:right="6dp" android:top="6dp" android:bottom="6dp" >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
+            <solid android:color="@color/action_bar_color"/>
+            <corners
+                android:radius="7dp"/>
+        </shape>
+    </item>
+
+    <item android:state_focused="false" android:left="6dp" android:right="6dp" android:top="6dp" android:bottom="6dp" >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
+            <solid android:color="@color/default_button_color_pressed"/>
+            <corners
+                android:radius="7dp"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="false" android:left="6dp" android:right="6dp" android:top="6dp" android:bottom="6dp" >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
+            <solid android:color="@color/default_button_color_pressed"/>
+            <corners
+                android:radius="7dp"
+                />
+        </shape>
+    </item>
+
+
+</selector>
