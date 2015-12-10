@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.wpi.total_joint_replacement.MainActivity;
 import edu.wpi.total_joint_replacement.R;
+import edu.wpi.total_joint_replacement.entities.PhysicalAction;
 import edu.wpi.total_joint_replacement.fragments.PhysicalActionsFragment;
 import edu.wpi.total_joint_replacement.fragments.PhysicalActionsMainFragment;
-import edu.wpi.total_joint_replacement.fragments.StiffnessValueFragment;
 import edu.wpi.total_joint_replacement.tools.PageController;
 
 public class RecordActivityActivity extends AppCompatActivity {
@@ -29,6 +30,9 @@ public class RecordActivityActivity extends AppCompatActivity {
 
     private PhysicalActionsMainFragment mainFragment = new PhysicalActionsMainFragment();
 
+    public PageController getPager(){
+        return mPager;
+    }
 
 
     @Override
@@ -45,6 +49,13 @@ public class RecordActivityActivity extends AppCompatActivity {
         ArrayList<android.support.v4.app.Fragment> pages = new ArrayList<>();
 
         pages.add(mainFragment);
+
+        final List<PhysicalAction> actionList = PhysicalAction.getAllActivities();
+        for (int i = 0; i < actionList.size(); i++) {
+            PhysicalActionsFragment newAction = new PhysicalActionsFragment();
+            newAction.setPhysicalAction(actionList.get(i));
+            pages.add(newAction);
+        }
 
 
         //Create the page updater, and give it the objects it needs to manipulate.

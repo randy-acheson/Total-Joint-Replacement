@@ -1,5 +1,6 @@
 package edu.wpi.total_joint_replacement.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,17 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.wpi.total_joint_replacement.R;
-import edu.wpi.total_joint_replacement.entities.PhysicalActions;
+import edu.wpi.total_joint_replacement.activities.RecordActivityActivity;
+import edu.wpi.total_joint_replacement.entities.PhysicalAction;
 
 
 public class PhysicalActionsMainFragment extends BaseFragment {
@@ -27,6 +26,7 @@ public class PhysicalActionsMainFragment extends BaseFragment {
     public PhysicalActionsMainFragment() {
         title = "Record Activity";
     }
+    private RecordActivityActivity recordActivity;
 
 
     @Override
@@ -36,8 +36,15 @@ public class PhysicalActionsMainFragment extends BaseFragment {
 
         final ListView listView = (ListView) view.findViewById(R.id.activitiesList);
 
+        Activity activity = getActivity();
+        if(activity != null){
+            if(activity instanceof RecordActivityActivity){
+                recordActivity = (RecordActivityActivity) activity;
+            }
+        }
+
         // Defined Array values to show in ListView
-        List<PhysicalActions> actionList = PhysicalActions.getAllActivities();
+        final List<PhysicalAction> actionList = PhysicalAction.getAllActivities();
         ArrayList<TextView> views = new ArrayList<>();
         for (int i = 0; i < actionList.size(); i++) {
             TextView newView = new TextView(view.getContext());
@@ -68,7 +75,10 @@ public class PhysicalActionsMainFragment extends BaseFragment {
                 int itemPosition = position;
 
                 // ListView Clicked item value
-                String itemValue = (String) listView.getItemAtPosition(position);
+                if(recordActivity != null){
+                    recordActivity.getPager().setCurrentItem(itemPosition + 1);
+                }
+
 
 
             }
@@ -112,11 +122,11 @@ public class PhysicalActionsMainFragment extends BaseFragment {
         }
     }
 
-    private String getActivityHTML(PhysicalActions action) {
+    private String getActivityHTML(PhysicalAction action) {
 
         return  "<h1>" + action.getTitle() + "</h1>" +
                 "<b>Description: </b>" + action.getDescription() + "<br />" +
-                "<b>Stress Level: </b>" + action.getGoal() + "<br />";
+                "<b>Goal: </b>" + action.getGoal() + "<br />";
     }
 
 }
