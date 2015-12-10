@@ -93,7 +93,6 @@ public class PageController extends ViewPager {
 
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
-
             return pages.get(position);
         }
 

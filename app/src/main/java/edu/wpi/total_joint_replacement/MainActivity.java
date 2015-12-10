@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import edu.wpi.total_joint_replacement.activities.RecordPainActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openRecordPain(View view) {
-        /*Intent newPage = new Intent(getApplicationContext(), PatientInfoActivity.class);
+        Intent newPage = new Intent(getApplicationContext(), RecordPainActivity.class);
         startActivity(newPage);
-        finish(); */
+        finish();
     }
 
     public void openRecordActivity(View view) {

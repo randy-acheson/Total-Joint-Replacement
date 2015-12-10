@@ -1,21 +1,17 @@
 package edu.wpi.total_joint_replacement.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 import edu.wpi.total_joint_replacement.R;
 
-//import android.widget.NumberPicker;
 
 
-public class PainValueFragment extends Fragment {
+public class PainValueFragment extends BaseFragment {
 
     public PainValueFragment() {
-        // Required empty public constructor
+        title = "Record Pain";
     }
 
 
