@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/BottomButtons" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight=".30"
+            android:id="@+id/home_button"
+            android:onClick="openMore"
+            android:text="Home"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight=".70"
+            android:layout_alignRight="@+id/home_button"
+            android:id="@+id/more_button"
+            android:text="More..."/>
+
+</LinearLayout>
