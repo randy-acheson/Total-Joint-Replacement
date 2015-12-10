@@ -18,9 +18,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Previous"
+        android:text="Return"
         android:id="@+id/statusPreviousButton"
-        android:layout_alignTop="@+id/statusNextButton"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="previousButtonClick"
