@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Total-Joint_Replacement</string>
+    <string name="app_name">Total Joint Replacement</string>
     
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
