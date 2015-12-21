@@ -45,7 +45,12 @@ public class ActivityTestController {
                 classesCopy.remove(value);
             }
             else if(classes.size() != 0){
-                theClass = classes.get(0);
+                classesCopy.addAll(classes);
+                int size = classesCopy.size();
+                Random rn = new Random();
+                int value = rn.nextInt(size);
+                theClass = classesCopy.get(value);
+                classesCopy.remove(value);
             }
             return theClass;
         }
