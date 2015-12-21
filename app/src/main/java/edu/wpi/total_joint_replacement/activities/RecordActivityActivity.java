@@ -17,7 +17,7 @@ import edu.wpi.total_joint_replacement.fragments.PhysicalActionsFragment;
 import edu.wpi.total_joint_replacement.fragments.PhysicalActionsMainFragment;
 import edu.wpi.total_joint_replacement.tools.PageController;
 
-public class RecordActivityActivity extends AppCompatActivity {
+public class RecordActivityActivity extends BaseActivity {
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -71,31 +71,6 @@ public class RecordActivityActivity extends AppCompatActivity {
             mPager.setCurrentItem(0);
         }
     }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_exit, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if(id == R.id.status_exit){
-            MainActivity.returnToMainActivity(true, this);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 
 
     public void previousButtonClick(View v){

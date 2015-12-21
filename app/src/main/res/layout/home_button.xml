@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/home_button"
+        android:layout_margin="5dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:src="@drawable/ic_menu_home"
+            android:contentDescription="Returns to the home page"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:text="Return to Home"/>
+    </LinearLayout>
+</LinearLayout>

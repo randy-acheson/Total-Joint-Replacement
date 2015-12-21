@@ -2,6 +2,7 @@ package edu.wpi.total_joint_replacement.activities;
 
 import java.util.Locale;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,7 @@ import edu.wpi.total_joint_replacement.R;
 import edu.wpi.total_joint_replacement.fragments.PainValueFragment;
 import edu.wpi.total_joint_replacement.fragments.StiffnessValueFragment;
 
-public class RecordPainActivityTabbed extends AppCompatActivity implements ActionBar.TabListener, OnFragmentInteractionListener {
+public class RecordPainActivityTabbed extends BaseActivity implements ActionBar.TabListener, OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -85,27 +86,6 @@ public class RecordPainActivityTabbed extends AppCompatActivity implements Actio
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_exit, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if(id == R.id.status_exit){
-            MainActivity.returnToMainActivity(true, this);
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

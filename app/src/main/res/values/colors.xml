@@ -8,4 +8,5 @@
     <color name="default_button_color_pressed">#5F6F7E</color>
     <color name="default_button_color_disabled">#C2CAD1</color>
     <color name="default_button_text_color">#FFFFFF</color>
+    <color name="home_button_color">#FFFFFF</color>
 </resources>
