@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import edu.wpi.total_joint_replacement.activities.ActivityTestController;
 import edu.wpi.total_joint_replacement.activities.RecordActivityActivity;
 import edu.wpi.total_joint_replacement.activities.RecordPainActivity;
 
@@ -23,21 +24,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openRecordPain(View view) {
-        Intent newPage = new Intent(getApplicationContext(), RecordPainActivity.class);
+        ActivityTestController.openPage(ActivityTestController.PageTypes.RECORD_PAIN, this);
+        /*Intent newPage = new Intent(getApplicationContext(), RecordPainActivity.class);
         startActivity(newPage);
-        finish();
+        finish();*/
     }
 
     public void openRecordActivity(View view) {
-        Intent newPage = new Intent(getApplicationContext(), RecordActivityActivity.class);
+        ActivityTestController.openPage(ActivityTestController.PageTypes.RECORD_ACTIVITY, this);
+        /*Intent newPage = new Intent(getApplicationContext(), RecordActivityActivity.class);
         startActivity(newPage);
-        finish();
+        finish();*/
     }
 
     public void openPainManagement(View view) {
+        ActivityTestController.openPage(ActivityTestController.PageTypes.PAIN_MANAGEMENT, this);
     }
 
     public void openReport(View view) {
+        ActivityTestController.openPage(ActivityTestController.PageTypes.VIEW_PROGRESS, this);
     }
 
     public void openMore(View view){

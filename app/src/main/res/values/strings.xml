@@ -30,4 +30,8 @@
     <string name="title_activity_activity_record">Record Activity</string>
 
     <string name="exit_button_text">Exit</string>
+
+
+    <string name="pain_tab_title">Pain</string>
+    <string name="stiffness_tab_title">Stiffness</string>
 </resources>
