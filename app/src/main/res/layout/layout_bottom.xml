@@ -14,7 +14,7 @@
             android:id="@+id/more_button"
             android:onClick="openMore"
             android:text="More..."
-            android:background="@drawable/button"
+            android:background="@drawable/home_button"
             android:textColor="@color/default_button_text_color"
             android:layout_margin="5dp"/>
 
