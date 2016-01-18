@@ -20,11 +20,12 @@ public class ActivityTestController {
     private Class[] recordActivityPages = { RecordActivityActivity.class };
     private Class[] medicationPages = {  };
     private Class[] viewProgressPages = {  };
+    private Class[] viewMoreOptionsPages = { MoreActivitiesActivity.class };
 
     private static ActivityTestController instance = new ActivityTestController();
 
     public enum PageTypes {
-        RECORD_PAIN, RECORD_ACTIVITY, PAIN_MANAGEMENT, VIEW_PROGRESS;
+        RECORD_PAIN, RECORD_ACTIVITY, PAIN_MANAGEMENT, VIEW_PROGRESS, MORE_OPTIONS;
     }
 
     private class PageTypeGetter{
@@ -61,6 +62,7 @@ public class ActivityTestController {
         pages.put(PageTypes.RECORD_ACTIVITY, new PageTypeGetter(recordActivityPages));
         pages.put(PageTypes.PAIN_MANAGEMENT, new PageTypeGetter(medicationPages));
         pages.put(PageTypes.VIEW_PROGRESS, new PageTypeGetter(viewProgressPages));
+        pages.put(PageTypes.MORE_OPTIONS, new PageTypeGetter(viewMoreOptionsPages));
     }
 
     public static void openPage(PageTypes type, Activity activity){

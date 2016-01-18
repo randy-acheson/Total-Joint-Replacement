@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMore(View view){
-
+        ActivityTestController.openPage(ActivityTestController.PageTypes.MORE_OPTIONS, this);
     }
 
     public void openHome(View view){

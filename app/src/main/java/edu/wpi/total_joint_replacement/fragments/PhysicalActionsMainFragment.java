@@ -19,6 +19,7 @@ import java.util.List;
 import edu.wpi.total_joint_replacement.R;
 import edu.wpi.total_joint_replacement.activities.RecordActivityActivity;
 import edu.wpi.total_joint_replacement.entities.PhysicalAction;
+import edu.wpi.total_joint_replacement.tools.TextListAdapter;
 
 
 public class PhysicalActionsMainFragment extends BaseFragment {
@@ -58,7 +59,7 @@ public class PhysicalActionsMainFragment extends BaseFragment {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
 
-        ActivitiesAdapter adapter = new ActivitiesAdapter(view.getContext(), android.R.layout.simple_list_item_1, views);
+        TextListAdapter adapter = new TextListAdapter(view.getContext(), android.R.layout.simple_list_item_1, views);
 
 
         // Assign adapter to ListView
@@ -88,39 +89,7 @@ public class PhysicalActionsMainFragment extends BaseFragment {
         return view;
     }
 
-    private class ActivitiesAdapter extends ArrayAdapter<TextView> {
 
-        private ArrayList<TextView> items;
-
-        public ActivitiesAdapter(Context context, int layoutId, ArrayList<TextView> items) {
-            super(context, layoutId, items);
-            this.items = items;
-        }
-
-        @Override
-        public View getView(int position, View v, ViewGroup parent) {
-            View mView = v;
-
-
-            //if(mView == null){
-            LayoutInflater vi = (LayoutInflater) context.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            mView = vi.inflate(R.layout.row_text, null);
-            // }
-
-            TextView text = (TextView) mView.findViewById(R.id.textView);
-
-            if (items.get(position) != null) {
-                text.setTextColor(Color.BLACK);
-                text.setTextSize(10);
-                text.setText(Html.fromHtml(items.get(position).getText() + ""));
-                text.setTextIsSelectable(false);
-
-            }
-
-
-            return mView;
-        }
-    }
 
     private String getActivityHTML(PhysicalAction action) {
         String goalString = action.getGoal();
