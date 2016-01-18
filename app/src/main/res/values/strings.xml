@@ -29,6 +29,8 @@
     <string name="title_activity_pain_record">Record Pain</string>
     <string name="title_activity_activity_record">Record Activity</string>
     <string name="title_activity_more_activities">More Options</string>
+    <string name="title_activity_pain_management">Pain Management</string>
+    <string name="title_activity_view_progress">View Progress</string>
 
     <string name="exit_button_text">Exit</string>
 

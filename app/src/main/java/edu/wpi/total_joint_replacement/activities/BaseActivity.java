@@ -43,4 +43,10 @@ public class BaseActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        MainActivity.returnToMainActivity(requiresConfirmationForExit, this);
+    }
+
 }

@@ -30,7 +30,8 @@
                 android:background="@drawable/button"
                 android:textColor="@color/default_button_text_color"
                 android:layout_margin="5dp"
-                android:padding="50dp" />
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp" />
 
             <Button
                 android:layout_width="0dp"
@@ -48,7 +49,8 @@
                 android:background="@drawable/button"
                 android:textColor="@color/default_button_text_color"
                 android:layout_margin="5dp"
-                android:padding="50dp"/>
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -72,7 +74,8 @@
                 android:background="@drawable/button"
                 android:textColor="@color/default_button_text_color"
                 android:layout_margin="5dp"
-                android:padding="50dp"/>
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"/>
 
             <Button
                 android:layout_width="0dp"
@@ -90,7 +93,8 @@
                 android:background="@drawable/button"
                 android:textColor="@color/default_button_text_color"
                 android:layout_margin="5dp"
-                android:padding="50dp"/>
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"/>
 
         </LinearLayout>
 

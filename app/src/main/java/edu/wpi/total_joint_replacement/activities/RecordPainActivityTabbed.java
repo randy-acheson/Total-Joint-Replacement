@@ -53,6 +53,8 @@ public class RecordPainActivityTabbed extends BaseActivity implements ActionBar.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
 
+        requiresConfirmationForExit = true;
+
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -103,12 +105,6 @@ public class RecordPainActivityTabbed extends BaseActivity implements ActionBar.
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent mainIntent = new Intent(this, MainActivity.class);
-        this.startActivity(mainIntent);
-        this.finish();
-    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

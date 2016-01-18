@@ -18,14 +18,14 @@ public class ActivityTestController {
 
     private Class[] recordPainPages = { RecordPainActivity.class, RecordPainActivityTabbed.class };
     private Class[] recordActivityPages = { RecordActivityActivity.class };
-    private Class[] medicationPages = {  };
-    private Class[] viewProgressPages = {  };
+    private Class[] medicationPages = { PainManagementActivity.class };
+    private Class[] viewProgressPages = { ViewProgressActivity.class };
     private Class[] viewMoreOptionsPages = { MoreActivitiesActivity.class };
 
     private static ActivityTestController instance = new ActivityTestController();
 
     public enum PageTypes {
-        RECORD_PAIN, RECORD_ACTIVITY, PAIN_MANAGEMENT, VIEW_PROGRESS, MORE_OPTIONS;
+        RECORD_PAIN, RECORD_ACTIVITY, PAIN_MANAGEMENT, VIEW_PROGRESS, MORE_OPTIONS
     }
 
     private class PageTypeGetter{

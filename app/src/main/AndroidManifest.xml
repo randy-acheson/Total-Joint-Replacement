@@ -47,6 +47,14 @@
             android:name=".activities.MoreActivitiesActivity"
             android:label="@string/title_activity_more_activities" >
         </activity>
+        <activity
+            android:name=".activities.PainManagementActivity"
+            android:label="@string/title_activity_pain_management" >
+        </activity>
+        <activity
+            android:name=".activities.ViewProgressActivity"
+            android:label="@string/title_activity_view_progress" >
+        </activity>
     </application>
 
 </manifest>

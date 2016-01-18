@@ -78,9 +78,4 @@ public class MoreActivitiesActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-            MainActivity.returnToMainActivity(false, this);
-    }
-
 }

@@ -42,6 +42,8 @@ public class RecordActivityActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        requiresConfirmationForExit = true;
+
 
         setContentView(R.layout.activity_record_activity);
 
@@ -73,7 +75,7 @@ public class RecordActivityActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (mPager.getCurrentItem() == 0) {
-            MainActivity.returnToMainActivity(true, this);
+            MainActivity.returnToMainActivity(requiresConfirmationForExit, this);
         } else {
             mPager.setCurrentItem(0);
         }
