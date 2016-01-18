@@ -11,6 +11,7 @@ public class PhysicalAction {
     private String description;
     private String goal;
 
+    public static List<PhysicalAction> activities = new ArrayList<>();
 
     public PhysicalAction(String title, String description, String goal){
         this.title = title;
@@ -18,21 +19,15 @@ public class PhysicalAction {
         this.goal = goal;
     }
 
+    public static PhysicalAction newAction = new PhysicalAction("Add a new activity!", "Press this button to add a new activity to your routine.", "");
+
     public static List<PhysicalAction> getAllActivities(){
-        List<PhysicalAction> activities = new ArrayList<>();
-        activities.add(new PhysicalAction("Stair Climbing", "Climb those stairs!", "5 steps"));
-        activities.add(new PhysicalAction("Walking", "Walk those paths!", "10 steps"));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        activities.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
-        return activities;
+        List<PhysicalAction> newList = new ArrayList<>(activities);
+        newList.add(new PhysicalAction("Stair Climbing", "Climb those stairs!", "5 steps"));
+        newList.add(new PhysicalAction("Walking", "Walk those paths!", ""));
+        newList.add(new PhysicalAction("Something else", "Do that something else!", "Just do it."));
+        newList.add(newAction);
+        return newList;
     }
 
 

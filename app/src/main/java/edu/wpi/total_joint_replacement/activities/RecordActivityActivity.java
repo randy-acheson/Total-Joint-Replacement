@@ -1,5 +1,6 @@
 package edu.wpi.total_joint_replacement.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import edu.wpi.total_joint_replacement.R;
 import edu.wpi.total_joint_replacement.entities.PhysicalAction;
 import edu.wpi.total_joint_replacement.fragments.PhysicalActionsFragment;
 import edu.wpi.total_joint_replacement.fragments.PhysicalActionsMainFragment;
+import edu.wpi.total_joint_replacement.fragments.PhysicalActionsNewFragment;
 import edu.wpi.total_joint_replacement.tools.PageController;
 
 public class RecordActivityActivity extends BaseActivity {
@@ -29,6 +31,7 @@ public class RecordActivityActivity extends BaseActivity {
     private Button previousButton;
 
     private PhysicalActionsMainFragment mainFragment = new PhysicalActionsMainFragment();
+    private PhysicalActionsNewFragment newActivity= new PhysicalActionsNewFragment();
 
     public PageController getPager(){
         return mPager;
@@ -49,12 +52,16 @@ public class RecordActivityActivity extends BaseActivity {
         ArrayList<android.support.v4.app.Fragment> pages = new ArrayList<>();
 
         pages.add(mainFragment);
-
         final List<PhysicalAction> actionList = PhysicalAction.getAllActivities();
         for (int i = 0; i < actionList.size(); i++) {
-            PhysicalActionsFragment newAction = new PhysicalActionsFragment();
-            newAction.setPhysicalAction(actionList.get(i));
-            pages.add(newAction);
+            if(actionList.get(i) == PhysicalAction.newAction){
+                pages.add(newActivity);
+            }
+            else {
+                PhysicalActionsFragment newAction = new PhysicalActionsFragment();
+                newAction.setPhysicalAction(actionList.get(i));
+                pages.add(newAction);
+            }
         }
 
 
@@ -70,6 +77,15 @@ public class RecordActivityActivity extends BaseActivity {
         } else {
             mPager.setCurrentItem(0);
         }
+    }
+
+
+
+    public void onNewActivityClick(View view){
+        newActivity.saveActivity();
+        Intent newIntent = new Intent(this, RecordActivityActivity.class);
+        this.startActivity(newIntent);
+        this.finish();
     }
 
 

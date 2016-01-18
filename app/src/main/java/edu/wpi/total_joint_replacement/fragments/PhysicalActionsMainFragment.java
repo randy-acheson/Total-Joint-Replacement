@@ -123,10 +123,17 @@ public class PhysicalActionsMainFragment extends BaseFragment {
     }
 
     private String getActivityHTML(PhysicalAction action) {
-
-        return  "<h1>" + action.getTitle() + "</h1>" +
-                "<b>Description: </b>" + action.getDescription() + "<br />" +
-                "<b>Goal: </b>" + action.getGoal() + "<br />";
+        String goalString = action.getGoal();
+        if(goalString.isEmpty()){
+            goalString = "N/A";
+        }
+        if (action != PhysicalAction.newAction) {
+            return "<h1>" + action.getTitle() + "</h1>" +
+                    "<b>Description: </b>" + action.getDescription() + "<br />" +
+                    "<b>Goal: </b>" + goalString + "<br />";
+        } else {
+            return "<h1>" + action.getTitle() + "</h1>" +
+                    "<b>" + action.getDescription() + "</b>";
+        }
     }
-
 }

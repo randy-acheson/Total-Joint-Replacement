@@ -34,8 +34,13 @@ public class PhysicalActionsFragment extends BaseFragment {
 
         if(action != null){
             title.setText(action.getTitle());
-            desc.setText(action.getDescription());
-            goal.setText(action.getGoal());
+            desc.setText("Description: " + action.getDescription());
+            if(!action.getGoal().isEmpty()) {
+                goal.setText("Goal: " + action.getGoal());
+            }
+            else{
+                goal.setText("Click here to set a goal!");
+            }
         }
         return view;
     }
