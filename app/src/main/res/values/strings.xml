@@ -36,5 +36,5 @@
 
 
     <string name="pain_tab_title">Pain</string>
-    <string name="stiffness_tab_title">Stiffness</string>
+    <string name="progress_tab_title">Progress</string>
 </resources>

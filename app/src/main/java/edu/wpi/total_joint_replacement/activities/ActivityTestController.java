@@ -16,7 +16,7 @@ public class ActivityTestController {
 
     private Map<PageTypes, PageTypeGetter> pages = new HashMap<>();
 
-    private Class[] recordPainPages = { RecordPainActivity.class, RecordPainActivityTabbed.class };
+    private Class[] recordPainPages = { RecordPainActivity.class };
     private Class[] recordActivityPages = { RecordActivityActivity.class };
     private Class[] medicationPages = { PainManagementActivity.class };
     private Class[] viewProgressPages = { ViewProgressActivity.class };
