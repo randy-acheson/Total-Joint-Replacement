@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
     compile 'com.jjoe64:graphview:4.0.1'
+    compile files('libs/opencsv-2.4.jar')
 }

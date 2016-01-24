@@ -44,7 +44,7 @@
             android:label="@string/title_activity_more_activities" >
         </activity>
         <activity
-            android:name=".activities.PainManagementActivity"
+            android:name=".activities.CustomRemindersActivity"
             android:label="@string/title_activity_pain_management" >
         </activity>
         <activity

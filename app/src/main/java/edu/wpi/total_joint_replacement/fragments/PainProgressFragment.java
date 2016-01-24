@@ -1,6 +1,7 @@
 package edu.wpi.total_joint_replacement.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import com.jjoe64.graphview.series.BaseSeries;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.BarGraphSeries;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,6 +26,9 @@ import java.util.List;
 import java.util.Random;
 
 import edu.wpi.total_joint_replacement.R;
+import edu.wpi.total_joint_replacement.tools.Database;
+import edu.wpi.total_joint_replacement.tools.Joint;
+import edu.wpi.total_joint_replacement.tools.PainEntry;
 
 //import android.widget.NumberPicker;
 
@@ -33,6 +40,8 @@ public class PainProgressFragment extends BaseFragment {
     }
     private GraphView graph;
     private Calendar cal;
+    private Date firstDate;
+    private Date lastDate;
 
 
     @Override
@@ -43,7 +52,16 @@ public class PainProgressFragment extends BaseFragment {
         graph = (GraphView) view.findViewById(R.id.painGraph);
         cal = Calendar.getInstance();
 
-        Date initialDate = cal.getTime();
+        Database db = Database.getInstance();
+        db.setContext(getActivity().getApplicationContext());
+
+        try {
+            db.readDummyData();
+        }
+        catch (IOException e) {
+            Log.d("Exception", "IOException");
+        }
+
         LineGraphSeries<DataPoint> series = createGraph();
         graph.addSeries(series);
 
@@ -51,26 +69,31 @@ public class PainProgressFragment extends BaseFragment {
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
         graph.getGridLabelRenderer().setNumHorizontalLabels(3);
 
-        // set manual x bounds to have nice steps
-        graph.getViewport().setMinX(initialDate.getTime());
-        graph.getViewport().setMaxX(cal.getTime().getTime());
         graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(firstDate.getTime());
+        graph.getViewport().setMaxX(lastDate.getTime());
 
+        graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
-        graph.getViewport().setMaxY(10); // Why doesn't this work??
+        graph.getViewport().setMaxY(10);
 
         return view;
     }
 
     public LineGraphSeries<DataPoint> createGraph() {
-        Random random = new Random();
+        ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
 
         List<DataPoint> points = new ArrayList<>();
 
-        for (int i = 0; i < 40; i++) {
-            points.add(new DataPoint(cal.getTime(), random.nextInt(11)));
-            cal.add( Calendar.DATE, 1 );
+        for (PainEntry entry : painEntries) {
+
+            if (entry.joint == Joint.BACK) {
+                points.add(new DataPoint(entry.time, entry.painLevel));
+            }
         }
+
+        firstDate = painEntries.get(0).time;
+        lastDate = painEntries.get(painEntries.size() - 1).time;
 
         DataPoint[] pointArray = new DataPoint[points.size()];
         pointArray = points.toArray(pointArray);

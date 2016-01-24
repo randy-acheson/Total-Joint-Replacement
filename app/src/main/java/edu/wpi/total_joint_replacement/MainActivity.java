@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openPainManagement(View view) {
-        ActivityTestController.openPage(ActivityTestController.PageTypes.PAIN_MANAGEMENT, this);
+        ActivityTestController.openPage(ActivityTestController.PageTypes.CUSTOM_REMINDER, this);
     }
 
     public void openReport(View view) {

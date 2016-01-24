@@ -18,14 +18,14 @@ public class ActivityTestController {
 
     private Class[] recordPainPages = { RecordPainActivity.class };
     private Class[] recordActivityPages = { RecordActivityActivity.class };
-    private Class[] medicationPages = { PainManagementActivity.class };
+    private Class[] reminderPages = { CustomRemindersActivity.class };
     private Class[] viewProgressPages = { ViewProgressActivity.class };
     private Class[] viewMoreOptionsPages = { MoreActivitiesActivity.class };
 
     private static ActivityTestController instance = new ActivityTestController();
 
     public enum PageTypes {
-        RECORD_PAIN, RECORD_ACTIVITY, PAIN_MANAGEMENT, VIEW_PROGRESS, MORE_OPTIONS
+        RECORD_PAIN, RECORD_ACTIVITY, CUSTOM_REMINDER, VIEW_PROGRESS, MORE_OPTIONS
     }
 
     private class PageTypeGetter{
@@ -60,7 +60,7 @@ public class ActivityTestController {
     private ActivityTestController(){
         pages.put(PageTypes.RECORD_PAIN, new PageTypeGetter(recordPainPages));
         pages.put(PageTypes.RECORD_ACTIVITY, new PageTypeGetter(recordActivityPages));
-        pages.put(PageTypes.PAIN_MANAGEMENT, new PageTypeGetter(medicationPages));
+        pages.put(PageTypes.CUSTOM_REMINDER, new PageTypeGetter(reminderPages));
         pages.put(PageTypes.VIEW_PROGRESS, new PageTypeGetter(viewProgressPages));
         pages.put(PageTypes.MORE_OPTIONS, new PageTypeGetter(viewMoreOptionsPages));
     }

@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import edu.wpi.total_joint_replacement.R;
 
-public class PainManagementActivity extends BaseActivity {
+public class CustomRemindersActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
