@@ -13,9 +13,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -62,6 +67,66 @@ public class Database {
                 Log.d("Exception", e.toString());
             }
         }
+    }
+
+    public ArrayList<PainEntry> getAveragedValues(TimeValue averageSetting, Joint joint, int subjectId){
+        ArrayList<PainEntry> painValues = new ArrayList<>();
+        Map<String, List<PainEntry>> values = new HashMap<>();
+        for(PainEntry entry: painEntries) {
+
+            if(entry.joint != joint || entry.subjectID != subjectId){
+                continue;
+            }
+
+            String index = "";
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(entry.time);
+            switch (averageSetting) {
+                case DAY:
+                    index = cal.get(Calendar.YEAR) + " - " + cal.get(Calendar.MONTH) + " - " + cal.get(Calendar.DAY_OF_MONTH);
+                    break;
+                case WEEK:
+                    index = cal.get(Calendar.YEAR) + " - " + cal.get(Calendar.MONTH) + " - " + cal.get(Calendar.WEEK_OF_MONTH);
+                    break;
+                case MONTH:
+                    index = cal.get(Calendar.YEAR) + " - " + cal.get(Calendar.MONTH);
+                    break;
+                case YEAR:
+                    index = cal.get(Calendar.YEAR) + "";
+                    break;
+            }
+            if(!values.containsKey(index)){
+                List<PainEntry> newList = new ArrayList<>();
+                newList.add(entry);
+                values.put(index, newList);
+            }
+            else{
+                values.get(index).add(entry);
+            }
+        }
+
+        for(String key: values.keySet()){
+            Log.d("PainEntry", key);
+            float sum = 0;
+            float count = 0;
+            for(PainEntry entry: values.get(key)){
+                sum += entry.painLevel;
+                count += 1.0;
+                Log.d("PainEntry", "\t" + entry.toString());
+            }
+            int averagePain = Math.round(sum / count);
+            Date date = values.get(key).get(0).time;
+            PainEntry newEntry = new PainEntry(subjectId, averagePain, joint, date);
+            painValues.add(newEntry);
+            Log.d("PainEntry", "NEW: " + newEntry.toString());
+        }
+
+        Collections.sort(painValues);
+        return painValues;
+    }
+
+    public enum TimeValue {
+        DAY, WEEK, MONTH, YEAR
     }
 
     public void setContext(Context context) {

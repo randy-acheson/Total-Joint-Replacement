@@ -81,7 +81,8 @@ public class PainProgressFragment extends BaseFragment {
     }
 
     public LineGraphSeries<DataPoint> createGraph() {
-        ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
+        //ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
+        ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(Database.TimeValue.DAY, Joint.BACK, 1);
 
         List<DataPoint> points = new ArrayList<>();
 
@@ -101,6 +102,10 @@ public class PainProgressFragment extends BaseFragment {
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(pointArray);
 
         return series;
+    }
+
+    public void ResetGraph(){
+        
     }
 
 }

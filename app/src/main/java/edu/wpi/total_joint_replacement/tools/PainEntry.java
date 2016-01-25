@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by Randy on 1/23/2016.
  */
-public class PainEntry {
+public class PainEntry implements Comparable<PainEntry> {
     public int subjectID;
     public int painLevel;
     public Joint joint;
@@ -17,5 +17,15 @@ public class PainEntry {
         this.painLevel = painLevel;
         this.joint = joint;
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + subjectID + " - pain level: " + painLevel + " - joint: " + joint + " - time: " + time;
+    }
+
+    @Override
+    public int compareTo(PainEntry other){
+        return this.time.compareTo(other.time);
     }
 }
