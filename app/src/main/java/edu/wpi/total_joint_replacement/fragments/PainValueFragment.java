@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,13 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edu.wpi.total_joint_replacement.R;
-
+import edu.wpi.total_joint_replacement.tools.Database;
+import edu.wpi.total_joint_replacement.tools.Joint;
+import edu.wpi.total_joint_replacement.tools.PainEntry;
 
 
 public class PainValueFragment extends BaseFragment {
@@ -42,6 +46,7 @@ public class PainValueFragment extends BaseFragment {
     private LinearLayout LL5;
     private LinearLayout LL6;
     private int currentSelectedFace = -1;
+    private Joint currentJoint = Joint.BACK;
 
     boolean b = false;
     Drawable d1;
@@ -69,18 +74,23 @@ public class PainValueFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.bodybtn1_ext:
+                currentJoint = Joint.BACK;
                 horizontaltap(B1_ext);
                 break;
             case R.id.bodybtn2_ext:
+                currentJoint = Joint.RIGHT_HIP;
                 horizontaltap(B2_ext);
                 break;
             case R.id.bodybtn3_ext:
+                currentJoint = Joint.LEFT_HIP;
                 horizontaltap(B3_ext);
                 break;
             case R.id.bodybtn4_ext:
+                currentJoint = Joint.RIGHT_KNEE;
                 horizontaltap(B4_ext);
                 break;
             case R.id.bodybtn5_ext:
+                currentJoint = Joint.LEFT_KNEE;
                 horizontaltap(B5_ext);
                 break;
 
@@ -129,25 +139,32 @@ public class PainValueFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 int colorToChangeTo = 0;
+                int level = 0;
                 b = true;
                 switch (currentSelectedFace) {
                     case 6:
                         colorToChangeTo = getColorForLevel(1);
+                        level = 0;
                         break;
                     case 5:
                         colorToChangeTo = getColorForLevel(2);
+                        level = 2;
                         break;
                     case 4:
                         colorToChangeTo = getColorForLevel(3);
+                        level = 4;
                         break;
                     case 3:
                         colorToChangeTo = getColorForLevel(4);
+                        level = 6;
                         break;
                     case 2:
                         colorToChangeTo = getColorForLevel(5);
+                        level = 8;
                         break;
                     case 1:
                         colorToChangeTo = getColorForLevel(6);
+                        level = 10;
                         break;
                     default:
                         b = false;
@@ -162,6 +179,8 @@ public class PainValueFragment extends BaseFragment {
                     //System.out.println(d1);
                     // button_ext.setBackground(d1);
                     dialog.dismiss();
+                    Log.d("PainValue", level + " - " + currentJoint + " - " + new Date());
+                    Database.getInstance().painEntries.add(new PainEntry(1, level, currentJoint, new Date()));
 
                 }
 
