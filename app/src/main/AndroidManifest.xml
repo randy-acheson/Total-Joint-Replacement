@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".activities.CustomRemindersActivity"
-            android:label="@string/title_activity_pain_management" >
+            android:label="@string/title_activity_custom_reminders" >
         </activity>
         <activity
             android:name=".activities.ViewProgressActivity"

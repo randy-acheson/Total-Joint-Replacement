@@ -63,7 +63,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5"
-                android:text="Pain\nManagement"
+                android:text="Custom\nReminders"
                 android:id="@+id/pain_management_button"
                 android:drawableTop="@drawable/activity_48dp"
                 android:onClick="openPainManagement"
