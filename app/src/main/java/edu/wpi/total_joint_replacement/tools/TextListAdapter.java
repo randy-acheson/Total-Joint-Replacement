@@ -40,7 +40,7 @@ public class TextListAdapter extends ArrayAdapter<TextView> {
 
         if (items.get(position) != null) {
             text.setTextColor(Color.BLACK);
-            text.setTextSize(10);
+            //text.setTextSize(10);
             text.setText(Html.fromHtml(items.get(position).getText() + ""));
             text.setTextIsSelectable(false);
 
