@@ -47,6 +47,7 @@ public class PainValueFragment extends BaseFragment {
     private LinearLayout LL6;
     private int currentSelectedFace = -1;
     private Joint currentJoint = Joint.BACK;
+    private PainProgressFragment progressFragment;
 
     boolean b = false;
     Drawable d1;
@@ -66,6 +67,10 @@ public class PainValueFragment extends BaseFragment {
         d1= getResources().getDrawable(R.drawable.round_button_with_center);
         return view;
 
+    }
+
+    public void setPainProgressFragment(PainProgressFragment progressFragment){
+        this.progressFragment = progressFragment;
     }
 
     public void buttonSelected(View view) {
@@ -179,8 +184,8 @@ public class PainValueFragment extends BaseFragment {
                     //System.out.println(d1);
                     // button_ext.setBackground(d1);
                     dialog.dismiss();
-                    Log.d("PainValue", level + " - " + currentJoint + " - " + new Date());
                     Database.getInstance().painEntries.add(new PainEntry(1, level, currentJoint, new Date()));
+                    progressFragment.resetGraph();
 
                 }
 

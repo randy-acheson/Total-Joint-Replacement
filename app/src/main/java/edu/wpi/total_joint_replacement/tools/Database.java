@@ -106,19 +106,16 @@ public class Database {
         }
 
         for(String key: values.keySet()){
-            Log.d("PainEntry", key);
             float sum = 0;
             float count = 0;
             for(PainEntry entry: values.get(key)){
                 sum += entry.painLevel;
                 count += 1.0;
-                Log.d("PainEntry", "\t" + entry.toString());
             }
             int averagePain = Math.round(sum / count);
             Date date = values.get(key).get(0).time;
             PainEntry newEntry = new PainEntry(subjectId, averagePain, joint, date);
             painValues.add(newEntry);
-            Log.d("PainEntry", "NEW: " + newEntry.toString());
         }
 
         Collections.sort(painValues);

@@ -29,8 +29,8 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
 
-    PainValueFragment painFragment = null;
-    PainProgressFragment reportFragment = null;
+    PainValueFragment painFragment = new PainValueFragment();
+    PainProgressFragment reportFragment = new PainProgressFragment();
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -41,6 +41,8 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
+
+        painFragment.setPainProgressFragment(reportFragment);
 
         requiresConfirmationForExit = true;
 

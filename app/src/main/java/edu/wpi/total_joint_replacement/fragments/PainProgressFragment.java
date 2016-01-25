@@ -104,8 +104,12 @@ public class PainProgressFragment extends BaseFragment {
         return series;
     }
 
-    public void ResetGraph(){
-        
+    public void resetGraph(){
+        graph.removeAllSeries();
+        LineGraphSeries<DataPoint> series = createGraph();
+        graph.addSeries(series);
+        graph.getViewport().setMinX(firstDate.getTime());
+        graph.getViewport().setMaxX(lastDate.getTime());
     }
 
 }
