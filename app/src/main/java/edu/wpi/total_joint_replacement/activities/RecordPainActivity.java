@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import edu.wpi.total_joint_replacement.OnFragmentInteractionListener;
 import edu.wpi.total_joint_replacement.R;
@@ -145,6 +146,53 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
 
     public void onFragmentInteraction(Uri uri){
 
+    }
+
+
+    //control all the button so that only one choice can be chosen
+    public void face1(View view) {
+        painFragment.enableUnclickedLayouts(1);
+        //resetAllRadio();
+        //RB1.setChecked(true);
+    }
+
+    //control all the button so that only one choice can be chosen
+    public void face2(View view) {
+        painFragment.enableUnclickedLayouts(2);
+        //resetAllRadio();
+        //RB2.setChecked(true);
+    }
+
+    //control all the button so that only one choice can be chosen
+    public void face3(View view) {
+        painFragment.enableUnclickedLayouts(3);
+        //resetAllRadio();
+        //RB3.setChecked(true);
+    }
+
+    //control all the button so that only one choice can be chosen
+    public void face4(View view) {
+        painFragment.enableUnclickedLayouts(4);
+        //resetAllRadio();
+        //RB4.setChecked(true);
+    }
+
+    //control all the button so that only one choice can be chosen
+    public void face5(View view) {
+        painFragment.enableUnclickedLayouts(5);
+        //resetAllRadio();
+        //RB5.setChecked(true);
+    }
+
+    //control all the button so that only one choice can be chosen
+    public void face6(View view) {
+        painFragment.enableUnclickedLayouts(6);
+        //resetAllRadio();
+        //RB6.setChecked(true);
+    }
+
+    public void onJointClicked(View view){
+        painFragment.buttonSelected(view);
     }
 
 

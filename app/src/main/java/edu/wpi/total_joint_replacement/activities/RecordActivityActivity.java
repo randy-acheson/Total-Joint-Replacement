@@ -94,4 +94,6 @@ public class RecordActivityActivity extends BaseActivity {
     public void previousButtonClick(View v){
         mPager.setCurrentItem(0);
     }
+
+
 }

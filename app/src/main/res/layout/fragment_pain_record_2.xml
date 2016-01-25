@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context="edu.wpi.total_joint_replacement.fragments.PainValueFragment">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView2"
+        android:src="@drawable/bodyoutline"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bodybtn1_ext"
+        android:background="@drawable/round_button_with_center"
+        android:onClick="onJointClicked"
+        android:alpha="0.7"
+        android:layout_above="@+id/bodybtn3_ext"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bodybtn2_ext"
+        android:background="@drawable/round_button_with_center"
+        android:alpha="0.7"
+        android:onClick="onJointClicked"
+        android:layout_below="@+id/bodybtn1_ext"
+        android:layout_toLeftOf="@+id/bodybtn1_ext"
+        android:layout_toStartOf="@+id/bodybtn1_ext" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bodybtn4_ext"
+        android:background="@drawable/round_button_with_center"
+        android:alpha="0.7"
+        android:onClick="onJointClicked"
+        android:layout_below="@+id/bodybtn2_ext"
+        android:layout_alignLeft="@+id/bodybtn2_ext"
+        android:layout_alignStart="@+id/bodybtn2_ext"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="53dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bodybtn3_ext"
+        android:background="@drawable/round_button_with_center"
+        android:onClick="onJointClicked"
+        android:alpha="0.7"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/bodybtn1_ext"
+        android:layout_toEndOf="@+id/bodybtn1_ext" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bodybtn5_ext"
+        android:background="@drawable/round_button_with_center"
+        android:alpha="0.7"
+        android:onClick="onJointClicked"
+        android:layout_alignTop="@+id/bodybtn4_ext"
+        android:layout_alignRight="@+id/bodybtn3_ext"
+        android:layout_alignEnd="@+id/bodybtn3_ext"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp" />
+
+
+</RelativeLayout>

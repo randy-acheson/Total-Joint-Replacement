@@ -37,4 +37,12 @@
 
     <string name="pain_tab_title">Pain</string>
     <string name="progress_tab_title">Progress</string>
+
+
+    <string name="pain_6">10. Hurts Worst</string>
+    <string name="pain_5">8. Hurts Whole Lot</string>
+    <string name="pain_4">6. Hurts Even More</string>
+    <string name="pain_3">4. Hurts Little More</string>
+    <string name="pain_2">2. Hurts Little Bit</string>
+    <string name="pain_1">0. No Hurt</string>
 </resources>
