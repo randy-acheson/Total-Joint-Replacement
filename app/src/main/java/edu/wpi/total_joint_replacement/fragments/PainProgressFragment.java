@@ -62,7 +62,7 @@ public class PainProgressFragment extends BaseFragment {
             Log.d("Exception", "IOException");
         }
 
-        LineGraphSeries<DataPoint> series = createGraph();
+        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK);
         graph.addSeries(series);
 
         // set date label formatter
@@ -80,15 +80,15 @@ public class PainProgressFragment extends BaseFragment {
         return view;
     }
 
-    public LineGraphSeries<DataPoint> createGraph() {
+    public LineGraphSeries<DataPoint> createGraph(Joint joint) {
         //ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
-        ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(Database.TimeValue.DAY, Joint.BACK, 1);
+        ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(Database.TimeValue.DAY, joint, 1);
 
         List<DataPoint> points = new ArrayList<>();
 
         for (PainEntry entry : painEntries) {
 
-            if (entry.joint == Joint.BACK) {
+            if (entry.joint == joint) {
                 points.add(new DataPoint(entry.time, entry.painLevel));
             }
         }
@@ -106,7 +106,7 @@ public class PainProgressFragment extends BaseFragment {
 
     public void resetGraph(){
         graph.removeAllSeries();
-        LineGraphSeries<DataPoint> series = createGraph();
+        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK);
         graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());
