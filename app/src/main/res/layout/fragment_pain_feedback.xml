@@ -5,6 +5,11 @@
     android:padding="5dp"
     tools:context="edu.wpi.total_joint_replacement.fragments.PainFeedbackFragment">
 
+    <!-- Images for arrows found here:
+        https://www.iconfinder.com/icons/27881/arrow_up_icon#size=128
+        https://www.iconfinder.com/icons/27880/arrow_red_up_icon#size=128
+    -->
+
     <RadioGroup
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -83,10 +88,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src="@drawable/ic_action_good"
+        android:src="@drawable/up_arrow"
         android:layout_alignRight="@+id/textView9"
         android:layout_alignEnd="@+id/textView9"
-        android:layout_above="@+id/textView9" />
+        android:layout_above="@+id/textView9"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView4" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -145,11 +153,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView4"
-        android:src="@drawable/ic_action_bad"
+        android:src="@drawable/down_arrow"
         android:layout_alignTop="@+id/textView12"
         android:layout_alignRight="@+id/textView13"
         android:layout_alignEnd="@+id/textView13"
-        android:layout_alignBottom="@+id/textView12" />
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignLeft="@+id/imageView5"
+        android:layout_alignStart="@+id/imageView5" />
 
     <TextView
         android:layout_width="wrap_content"
