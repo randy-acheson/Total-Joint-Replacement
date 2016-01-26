@@ -26,8 +26,8 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">Home</string>
-    <string name="title_activity_pain_record">Record Pain</string>
-    <string name="title_activity_activity_record">Record Activity</string>
+    <string name="title_activity_pain_record">Pain</string>
+    <string name="title_activity_activity_record">Activity</string>
     <string name="title_activity_more_activities">More Options</string>
     <string name="title_activity_custom_reminders">Custom Reminders</string>
     <string name="title_activity_assessment">Assessment</string>

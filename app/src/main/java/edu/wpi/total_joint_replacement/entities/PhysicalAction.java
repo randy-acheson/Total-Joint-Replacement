@@ -41,7 +41,7 @@ public class PhysicalAction {
         newList.add(new PhysicalAction("Strength and Aerobic Classes", "Yoga, dance, etc!", "30 minutes"));
         newList.add(new PhysicalAction("Golfing", "Just keep swinging!", "Play for an hour"));
         newList.add(new PhysicalAction("Gardening and Yardwork", "Beautify your landscape!", ""));
-        newList.add(new PhysicalAction("Jogging", "Get that heard rate going!", "2 miles"));
+        newList.add(new PhysicalAction("Jogging", "Get that heart rate going!", "2 miles"));
         newList.add(newAction);
         return newList;
     }

@@ -11,20 +11,13 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.Series;
-import com.jjoe64.graphview.series.BaseSeries;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.jjoe64.graphview.series.BarGraphSeries;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import edu.wpi.total_joint_replacement.R;
 import edu.wpi.total_joint_replacement.tools.Database;
@@ -64,20 +57,22 @@ public class PainProgressFragment extends BaseFragment {
             Log.d("Exception", "IOException");
         }
 
-        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
+        /*LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
         series.setTitle("Back");
         series.setColor(Color.BLUE);
         graph.addSeries(series);
 
-        /*LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
+        LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
         series2.setTitle("Right Hip");
         series2.setColor(Color.GREEN);
-        graph.addSeries(series2);*/
+        graph.addSeries(series2);
 
         LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
         series3.setTitle("Right Knee");
         series3.setColor(Color.RED);
-        graph.addSeries(series3);
+        graph.addSeries(series3);*/
+
+        makeSeries(currentTimeAverage);
 
         graph.getLegendRenderer().setVisible(true);
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
@@ -87,8 +82,8 @@ public class PainProgressFragment extends BaseFragment {
         graph.getGridLabelRenderer().setNumHorizontalLabels(3);
 
         graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(firstDate.getTime());
-        graph.getViewport().setMaxX(lastDate.getTime());
+        //graph.getViewport().setMinX(firstDate.getTime());
+        //graph.getViewport().setMaxX(lastDate.getTime());
 
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
@@ -127,16 +122,31 @@ public class PainProgressFragment extends BaseFragment {
         graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());*/
-        resetGraph(currentTimeAverage);
+        graph.removeAllSeries();
+        makeSeries(currentTimeAverage);
     }
 
-    public void resetGraph(Database.TimeValue timeSetting){
+    public void makeSeries(Database.TimeValue timeSetting){
         currentTimeAverage = timeSetting;
-        graph.removeAllSeries();
+
         LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
+        series.setTitle("Back");
+        series.setColor(Color.BLUE);
         graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());
+
+        /*LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
+        series2.setTitle("Right Hip");
+        series2.setColor(Color.GREEN);
+        graph.addSeries(series2);*/
+
+        LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
+        series3.setTitle("Right Knee");
+        series3.setColor(Color.RED);
+        graph.addSeries(series3);
+        graph.getViewport().setMinX(Math.min(firstDate.getTime(), graph.getViewport().getMinX(true)));
+        graph.getViewport().setMaxX(Math.max(lastDate.getTime(), graph.getViewport().getMinX(true)));
     }
 
 }
