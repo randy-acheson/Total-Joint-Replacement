@@ -39,10 +39,8 @@ public class MoreActivitiesActivity extends BaseActivity {
         final List<String> activityList = new ArrayList<>();
         activityList.add("<h1>Profile</h1> Update your personal details and choices.");
         activityList.add("<h1>Set Goals</h1> Set your goals for all of your activities.");
-        activityList.add("<h1>Surveys</h1> Complete forms and questions that can help you and your doctors.");
-        activityList.add("<h1>Journals</h1> Read articles concerning Arthritis.");
-        activityList.add("<h1>Q/A</h1> Read questions that are frequently asked.");
-        activityList.add("<h1>Surgical Benefits</h1> Read about the surgical benefits.");
+        activityList.add("<h1>Research Findings</h1> Read articles concerning Arthritis.");
+        activityList.add("<h1>FAQ (Frequently Asked Questions)</h1> Read questions that are frequently asked.");
         ArrayList<TextView> views = new ArrayList<>();
         for (int i = 0; i < activityList.size(); i++) {
             TextView newView = new TextView(this);
