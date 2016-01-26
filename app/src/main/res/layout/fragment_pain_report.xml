@@ -4,9 +4,108 @@
     android:layout_margin="5dp"
     tools:context=".fragments.PainProgressFragment">
 
+
+
+
+
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/time_buttons"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weekly"
+            android:id="@+id/radioButton"
+            android:checked="false"
+            android:layout_margin="5dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly"
+            android:id="@+id/radioButton2"
+            android:checked="true"
+            android:layout_margin="5dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yearly"
+            android:id="@+id/radioButton3"
+            android:checked="false"
+            android:layout_margin="5dp" />
+    </RadioGroup>
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/painGraph" />
+        android:id="@+id/painGraph"
+        android:layout_below="@id/time_buttons"
+        android:layout_above="@+id/joint_buttons" />
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/joint_buttons"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Right Hip"
+            android:id="@+id/joint_btn_rhip"
+            android:checked="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/joint_btn_rknee"
+            android:layout_alignStart="@+id/joint_btn_rknee" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Left Knee"
+            android:id="@+id/joint_btn_lknee"
+            android:checked="false"
+            android:layout_below="@+id/joint_btn_lhip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Right Knee"
+            android:id="@+id/joint_btn_rknee"
+            android:checked="true"
+            android:layout_alignTop="@+id/joint_btn_lknee"
+            android:layout_toLeftOf="@+id/joint_btn_back"
+            android:layout_toStartOf="@+id/joint_btn_back" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/joint_btn_back"
+            android:checked="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/joint_btn_lknee"
+            android:layout_toStartOf="@+id/joint_btn_lknee" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Left Hip"
+            android:id="@+id/joint_btn_lhip"
+            android:checked="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/joint_btn_lknee"
+            android:layout_alignStart="@+id/joint_btn_lknee" />
+    </RelativeLayout>
 
 </RelativeLayout>

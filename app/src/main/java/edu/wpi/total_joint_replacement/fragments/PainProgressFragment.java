@@ -1,5 +1,6 @@
 package edu.wpi.total_joint_replacement.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ public class PainProgressFragment extends BaseFragment {
     private Calendar cal;
     private Date firstDate;
     private Date lastDate;
+    private Database.TimeValue currentTimeAverage = Database.TimeValue.DAY;
 
 
     @Override
@@ -62,8 +64,23 @@ public class PainProgressFragment extends BaseFragment {
             Log.d("Exception", "IOException");
         }
 
-        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK);
+        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
+        series.setTitle("Back");
+        series.setColor(Color.BLUE);
         graph.addSeries(series);
+
+        /*LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
+        series2.setTitle("Right Hip");
+        series2.setColor(Color.GREEN);
+        graph.addSeries(series2);*/
+
+        LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
+        series3.setTitle("Right Knee");
+        series3.setColor(Color.RED);
+        graph.addSeries(series3);
+
+        graph.getLegendRenderer().setVisible(true);
+        graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
@@ -80,9 +97,9 @@ public class PainProgressFragment extends BaseFragment {
         return view;
     }
 
-    public LineGraphSeries<DataPoint> createGraph(Joint joint) {
+    public LineGraphSeries<DataPoint> createGraph(Joint joint, Database.TimeValue timeSetting) {
         //ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
-        ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(Database.TimeValue.DAY, joint, 1);
+        ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(timeSetting, joint, 1);
 
         List<DataPoint> points = new ArrayList<>();
 
@@ -105,8 +122,18 @@ public class PainProgressFragment extends BaseFragment {
     }
 
     public void resetGraph(){
-        graph.removeAllSeries();
+        /*graph.removeAllSeries();
         LineGraphSeries<DataPoint> series = createGraph(Joint.BACK);
+        graph.addSeries(series);
+        graph.getViewport().setMinX(firstDate.getTime());
+        graph.getViewport().setMaxX(lastDate.getTime());*/
+        resetGraph(currentTimeAverage);
+    }
+
+    public void resetGraph(Database.TimeValue timeSetting){
+        currentTimeAverage = timeSetting;
+        graph.removeAllSeries();
+        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
         graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());
