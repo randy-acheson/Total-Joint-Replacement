@@ -63,9 +63,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    boolean skipSignin = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(skipSignin) {
+            Intent mainIntent = new Intent(this, MainActivity.class);
+            this.startActivity(mainIntent);
+            this.finish();
+            return;
+        }
+
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
