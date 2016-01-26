@@ -179,7 +179,7 @@ public class PainValueFragment extends BaseFragment {
                 }
 
                 if (b) {
-                    d1.setColorFilter(colorToChangeTo, PorterDuff.Mode.OVERLAY);
+                    d1.setColorFilter(colorToChangeTo, PorterDuff.Mode.SCREEN);
                     button.setBackgroundDrawable(d1);
                     //System.out.println(d1);
                     // button_ext.setBackground(d1);
