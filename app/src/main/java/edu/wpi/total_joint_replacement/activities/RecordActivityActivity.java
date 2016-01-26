@@ -3,6 +3,7 @@ package edu.wpi.total_joint_replacement.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -92,6 +93,11 @@ public class RecordActivityActivity extends BaseActivity {
 
 
     public void previousButtonClick(View v){
+        mPager.setCurrentItem(0);
+    }
+
+    public void onRecordActivityPressed(View v){
+        Log.d("RecordActivity", v.toString());
         mPager.setCurrentItem(0);
     }
 
