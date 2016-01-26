@@ -30,7 +30,7 @@
     <string name="title_activity_activity_record">Record Activity</string>
     <string name="title_activity_more_activities">More Options</string>
     <string name="title_activity_custom_reminders">Custom Reminders</string>
-    <string name="title_activity_view_progress">View Progress</string>
+    <string name="title_activity_assessment">Assessment</string>
 
     <string name="exit_button_text">Exit</string>
 

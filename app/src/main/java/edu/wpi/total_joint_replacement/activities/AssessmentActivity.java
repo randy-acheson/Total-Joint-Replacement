@@ -5,7 +5,7 @@ import android.os.Bundle;
 import edu.wpi.total_joint_replacement.MainActivity;
 import edu.wpi.total_joint_replacement.R;
 
-public class ViewProgressActivity extends BaseActivity {
+public class AssessmentActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

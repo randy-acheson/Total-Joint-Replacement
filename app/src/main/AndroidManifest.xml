@@ -48,8 +48,8 @@
             android:label="@string/title_activity_custom_reminders" >
         </activity>
         <activity
-            android:name=".activities.ViewProgressActivity"
-            android:label="@string/title_activity_view_progress" >
+            android:name=".activities.AssessmentActivity"
+            android:label="@string/title_activity_assessment" >
         </activity>
     </application>
 

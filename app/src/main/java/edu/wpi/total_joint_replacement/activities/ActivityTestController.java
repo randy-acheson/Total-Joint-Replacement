@@ -19,7 +19,7 @@ public class ActivityTestController {
     private Class[] recordPainPages = { RecordPainActivity.class };
     private Class[] recordActivityPages = { RecordActivityActivity.class };
     private Class[] reminderPages = { CustomRemindersActivity.class };
-    private Class[] viewProgressPages = { ViewProgressActivity.class };
+    private Class[] viewProgressPages = { AssessmentActivity.class };
     private Class[] viewMoreOptionsPages = { MoreActivitiesActivity.class };
 
     private static ActivityTestController instance = new ActivityTestController();
