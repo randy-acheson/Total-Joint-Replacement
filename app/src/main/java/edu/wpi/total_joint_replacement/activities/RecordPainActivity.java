@@ -14,6 +14,7 @@ import android.view.View;
 
 import edu.wpi.total_joint_replacement.OnFragmentInteractionListener;
 import edu.wpi.total_joint_replacement.R;
+import edu.wpi.total_joint_replacement.fragments.PainFeedbackFragment;
 import edu.wpi.total_joint_replacement.fragments.PainProgressFragment;
 import edu.wpi.total_joint_replacement.fragments.PainValueFragment;
 
@@ -31,6 +32,7 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
 
     PainValueFragment painFragment = new PainValueFragment();
     PainProgressFragment reportFragment = new PainProgressFragment();
+    PainFeedbackFragment feedbackFragment = new PainFeedbackFragment();
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -123,13 +125,18 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
                         reportFragment = new PainProgressFragment();
                     }
                     return reportFragment;
+                case 2:
+                    if(feedbackFragment == null){
+                        feedbackFragment = new PainFeedbackFragment();
+                    }
+                    return feedbackFragment;
             }
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return 3;
         }
 
         @Override
@@ -140,6 +147,8 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
                     return getString(R.string.pain_tab_title).toUpperCase(l);
                 case 1:
                     return getString(R.string.progress_tab_title).toUpperCase(l);
+                case 2:
+                    return getString(R.string.feedback_tab_title).toUpperCase(l);
             }
             return null;
         }
