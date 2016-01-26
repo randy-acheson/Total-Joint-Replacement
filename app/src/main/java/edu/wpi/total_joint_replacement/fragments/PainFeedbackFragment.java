@@ -30,7 +30,7 @@ import edu.wpi.total_joint_replacement.tools.PainEntry;
 public class PainFeedbackFragment extends BaseFragment {
 
     public PainFeedbackFragment() {
-        title = "Pain Progress";
+        title = "Pain Feedback";
     }
 
 
