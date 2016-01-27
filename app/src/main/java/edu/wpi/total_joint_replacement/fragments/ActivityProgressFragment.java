@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
+import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -42,9 +43,9 @@ public class ActivityProgressFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_pain_report, container, false);
+        View view = inflater.inflate(R.layout.fragment_activity_report, container, false);
 
-        graph = (GraphView) view.findViewById(R.id.painGraph);
+        graph = (GraphView) view.findViewById(R.id.activityGraph);
         cal = Calendar.getInstance();
 
         Database db = Database.getInstance();
@@ -57,33 +58,13 @@ public class ActivityProgressFragment extends BaseFragment {
             Log.d("Exception", "IOException");
         }
 
-        /*LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
-        series.setTitle("Back");
-        series.setColor(Color.BLUE);
-        graph.addSeries(series);
-
-        LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
-        series2.setTitle("Right Hip");
-        series2.setColor(Color.GREEN);
-        graph.addSeries(series2);
-
-        LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
-        series3.setTitle("Right Knee");
-        series3.setColor(Color.RED);
-        graph.addSeries(series3);*/
-
         makeSeries(currentTimeAverage);
-
-        graph.getLegendRenderer().setVisible(true);
-        graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
         graph.getGridLabelRenderer().setNumHorizontalLabels(3);
 
         graph.getViewport().setXAxisBoundsManual(true);
-        //graph.getViewport().setMinX(firstDate.getTime());
-        //graph.getViewport().setMaxX(lastDate.getTime());
 
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
@@ -92,7 +73,7 @@ public class ActivityProgressFragment extends BaseFragment {
         return view;
     }
 
-    public LineGraphSeries<DataPoint> createGraph(Joint joint, Database.TimeValue timeSetting) {
+    public BarGraphSeries<DataPoint> createGraph(Joint joint, Database.TimeValue timeSetting) {
         //ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
         ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(timeSetting, joint, 1);
 
@@ -111,17 +92,12 @@ public class ActivityProgressFragment extends BaseFragment {
         DataPoint[] pointArray = new DataPoint[points.size()];
         pointArray = points.toArray(pointArray);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(pointArray);
+        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(pointArray);
 
         return series;
     }
 
     public void resetGraph(){
-        /*graph.removeAllSeries();
-        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK);
-        graph.addSeries(series);
-        graph.getViewport().setMinX(firstDate.getTime());
-        graph.getViewport().setMaxX(lastDate.getTime());*/
         graph.removeAllSeries();
         makeSeries(currentTimeAverage);
     }
@@ -129,24 +105,12 @@ public class ActivityProgressFragment extends BaseFragment {
     public void makeSeries(Database.TimeValue timeSetting){
         currentTimeAverage = timeSetting;
 
-        LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
+        BarGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
         series.setTitle("Back");
         series.setColor(Color.BLUE);
         graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());
-
-        /*LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
-        series2.setTitle("Right Hip");
-        series2.setColor(Color.GREEN);
-        graph.addSeries(series2);*/
-
-        LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
-        series3.setTitle("Right Knee");
-        series3.setColor(Color.RED);
-        graph.addSeries(series3);
-        graph.getViewport().setMinX(Math.min(firstDate.getTime(), graph.getViewport().getMinX(true)));
-        graph.getViewport().setMaxX(Math.max(lastDate.getTime(), graph.getViewport().getMinX(true)));
     }
 
 }
