@@ -1,24 +1,15 @@
 package edu.wpi.total_joint_replacement.activities;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.wpi.total_joint_replacement.MainActivity;
 import edu.wpi.total_joint_replacement.R;
-import edu.wpi.total_joint_replacement.entities.PhysicalAction;
-import edu.wpi.total_joint_replacement.fragments.PhysicalActionsFragment;
-import edu.wpi.total_joint_replacement.fragments.PhysicalActionsMainFragment;
-import edu.wpi.total_joint_replacement.fragments.PhysicalActionsNewFragment;
-import edu.wpi.total_joint_replacement.tools.PageController;
 import edu.wpi.total_joint_replacement.tools.TextListAdapter;
 
 public class MoreActivitiesActivity extends BaseActivity {

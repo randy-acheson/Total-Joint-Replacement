@@ -1,105 +1,160 @@
 package edu.wpi.total_joint_replacement.activities;
 
-import android.content.Intent;
+import java.util.Locale;
+
+import android.net.Uri;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.support.v4.view.ViewPager;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import edu.wpi.total_joint_replacement.MainActivity;
+import edu.wpi.total_joint_replacement.OnFragmentInteractionListener;
 import edu.wpi.total_joint_replacement.R;
-import edu.wpi.total_joint_replacement.entities.PhysicalAction;
-import edu.wpi.total_joint_replacement.fragments.PhysicalActionsFragment;
-import edu.wpi.total_joint_replacement.fragments.PhysicalActionsMainFragment;
+import edu.wpi.total_joint_replacement.fragments.ActivityFeedbackFragment;
+import edu.wpi.total_joint_replacement.fragments.ActivityProgressFragment;
+import edu.wpi.total_joint_replacement.fragments.ActivityListFragment;
 import edu.wpi.total_joint_replacement.fragments.PhysicalActionsNewFragment;
-import edu.wpi.total_joint_replacement.tools.PageController;
 
-public class RecordActivityActivity extends BaseActivity {
+public class RecordActivityActivity extends BaseActivity implements ActionBar.TabListener, OnFragmentInteractionListener {
 
     /**
-     * The pager widget, which handles animation and allows swiping horizontally to access previous
-     * and next wizard steps.
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private PageController mPager;
+    SectionsPagerAdapter mSectionsPagerAdapter;
 
-    private Button nextButton;
-    private Button previousButton;
+    ActivityListFragment activityFragment = new ActivityListFragment();
+    ActivityProgressFragment progressFragment = new ActivityProgressFragment();
+    ActivityFeedbackFragment feedbackFragment = new ActivityFeedbackFragment();
 
-    private PhysicalActionsMainFragment mainFragment = new PhysicalActionsMainFragment();
-    private PhysicalActionsNewFragment newActivity= new PhysicalActionsNewFragment();
-
-    public PageController getPager(){
-        return mPager;
-    }
-
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_patient_info);
+
+        //activityFragment.setActivityProgressFragment(progressFragment);
 
         requiresConfirmationForExit = true;
 
+        // Set up the action bar.
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        setContentView(R.layout.activity_record_activity);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
-        nextButton = new Button(this);
-        previousButton = (Button) findViewById(R.id.prevButton);
-        ArrayList<android.support.v4.app.Fragment> pages = new ArrayList<>();
-
-        pages.add(mainFragment);
-        final List<PhysicalAction> actionList = PhysicalAction.getAllActivities();
-        for (int i = 0; i < actionList.size(); i++) {
-            if(actionList.get(i) == PhysicalAction.newAction){
-                pages.add(newActivity);
+        // When swiping between different sections, select the corresponding
+        // tab. We can also use ActionBar.Tab#select() to do this if we have
+        // a reference to the Tab.
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
             }
-            else {
-                PhysicalActionsFragment newAction = new PhysicalActionsFragment();
-                newAction.setPhysicalAction(actionList.get(i));
-                pages.add(newAction);
-            }
+        });
+
+        // For each of the sections in the app, add a tab to the action bar.
+        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+            // Create a tab with text corresponding to the page title defined by
+            // the adapter. Also specify this Activity object, which implements
+            // the TabListener interface, as the callback (listener) for when
+            // this tab is selected.
+            actionBar.addTab(
+                    actionBar.newTab()
+                            .setText(mSectionsPagerAdapter.getPageTitle(i))
+                            .setTabListener(this));
         }
-
-
-        //Create the page updater, and give it the objects it needs to manipulate.
-        mPager = (PageController) findViewById(R.id.statusUpdatePager);
-        mPager.registerPageController(this, nextButton, previousButton, pages, true);
     }
 
     @Override
-    public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
-            MainActivity.returnToMainActivity(requiresConfirmationForExit, this);
-        } else {
-            mPager.setCurrentItem(0);
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        // When the given tab is selected, switch to the corresponding page in
+        // the ViewPager.
+        mViewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+
+    /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            switch (position) {
+                default:
+                case 0:
+                    if (activityFragment == null) {
+                        activityFragment = new ActivityListFragment();
+                    }
+                    return activityFragment;
+                case 1:
+                    if (progressFragment == null) {
+                        progressFragment = new ActivityProgressFragment();
+                    }
+                    return progressFragment;
+                case 2:
+                    if (feedbackFragment == null) {
+                        feedbackFragment = new ActivityFeedbackFragment();
+                    }
+                    return feedbackFragment;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            Locale l = Locale.getDefault();
+            switch (position) {
+                case 0:
+                    return getString(R.string.activity_tab_title).toUpperCase(l);
+                case 1:
+                    return getString(R.string.progress_tab_title).toUpperCase(l);
+                case 2:
+                    return getString(R.string.feedback_tab_title).toUpperCase(l);
+            }
+            return null;
         }
     }
 
+    public void onFragmentInteraction(Uri uri){
 
-
-    public void onNewActivityClick(View view){
-        newActivity.saveActivity();
-        Intent newIntent = new Intent(this, RecordActivityActivity.class);
-        this.startActivity(newIntent);
-        this.finish();
     }
-
-
-    public void previousButtonClick(View v){
-        mPager.setCurrentItem(0);
-    }
-
-    public void onRecordActivityPressed(View v){
-        Log.d("RecordActivity", v.toString());
-        mPager.setCurrentItem(0);
-    }
-
-
 }
