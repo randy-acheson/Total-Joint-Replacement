@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/painGraph"
         android:layout_below="@id/time_buttons"
-        android:layout_above="@+id/joint_buttons" />
+        android:layout_above="@+id/joint_buttons"/>
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -55,7 +55,8 @@
         android:gravity="center_vertical|center_horizontal"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        >
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -65,7 +66,7 @@
             android:checked="false"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/joint_btn_rknee"
-            android:layout_alignStart="@+id/joint_btn_rknee" />
+            android:layout_alignStart="@+id/joint_btn_rknee"/>
 
         <CheckBox
             android:layout_width="wrap_content"
