@@ -1,6 +1,10 @@
 package edu.wpi.total_joint_replacement.fragments;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,21 +61,6 @@ public class PainProgressFragment extends BaseFragment {
             Log.d("Exception", "IOException");
         }
 
-        /*LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
-        series.setTitle("Back");
-        series.setColor(Color.BLUE);
-        graph.addSeries(series);
-
-        LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
-        series2.setTitle("Right Hip");
-        series2.setColor(Color.GREEN);
-        graph.addSeries(series2);
-
-        LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
-        series3.setTitle("Right Knee");
-        series3.setColor(Color.RED);
-        graph.addSeries(series3);*/
-
         makeSeries(currentTimeAverage);
 
         graph.getLegendRenderer().setVisible(true);
@@ -82,8 +71,6 @@ public class PainProgressFragment extends BaseFragment {
         graph.getGridLabelRenderer().setNumHorizontalLabels(3);
 
         graph.getViewport().setXAxisBoundsManual(true);
-        //graph.getViewport().setMinX(firstDate.getTime());
-        //graph.getViewport().setMaxX(lastDate.getTime());
 
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
@@ -132,7 +119,6 @@ public class PainProgressFragment extends BaseFragment {
         LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
         series.setTitle("Back");
         series.setColor(Color.BLUE);
-        graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());
 
@@ -144,9 +130,31 @@ public class PainProgressFragment extends BaseFragment {
         LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
         series3.setTitle("Right Knee");
         series3.setColor(Color.RED);
-        graph.addSeries(series3);
         graph.getViewport().setMinX(Math.min(firstDate.getTime(), graph.getViewport().getMinX(true)));
-        graph.getViewport().setMaxX(Math.max(lastDate.getTime(), graph.getViewport().getMinX(true)));
+        graph.getViewport().setMaxX(Math.max(lastDate.getTime(), graph.getViewport().getMaxX(true)));
+
+
+        //generateBackground(10.0, Color.argb(41, 193, 66, 66));
+        //generateBackground(7.5, Color.argb(41, 198, 206, 37));
+        //generateBackground(2.5, Color.argb(41, 80, 191, 63));
+
+
+        graph.addSeries(series);
+        graph.addSeries(series3);
+    }
+
+    private void generateBackground(double lineHeight, int color) {
+        List<DataPoint> pointsbelow2 = new ArrayList<>();
+        pointsbelow2.add(new DataPoint(firstDate.getTime() - 1000000, lineHeight));
+        pointsbelow2.add(new DataPoint(lastDate.getTime() + 1000000, lineHeight));
+        DataPoint[] pointArray = new DataPoint[pointsbelow2.size()];
+        pointArray = pointsbelow2.toArray(pointArray);
+
+        LineGraphSeries<DataPoint> lowerLineSeries = new LineGraphSeries<>(pointArray);
+        lowerLineSeries.setBackgroundColor(color);
+        lowerLineSeries.setColor(color);
+        lowerLineSeries.setDrawBackground(true);
+        graph.addSeries(lowerLineSeries);
     }
 
 }

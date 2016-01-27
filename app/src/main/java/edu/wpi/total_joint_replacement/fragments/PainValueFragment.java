@@ -216,7 +216,7 @@ public class PainValueFragment extends BaseFragment {
             case 2:
                 return Color.parseColor("#FF99CC00");
             case 3:
-                return Color.YELLOW;
+                return Color.parseColor("#FFE1ED02");
             case 4:
                 return Color.parseColor("#FFFFBB33");
             case 5:
