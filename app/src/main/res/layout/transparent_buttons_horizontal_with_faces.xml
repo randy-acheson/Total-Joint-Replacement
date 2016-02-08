@@ -14,163 +14,148 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.15"
             android:layout_height="fill_parent"
-            android:background="@drawable/custom_button_0"
+            android:background="@drawable/custom_button_f"
             android:onClick="face6"
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/layoutbutton6"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" >
-            <!--<ImageView
+            android:orientation="vertical" >
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/f_transparent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:adjustViewBounds="true"/>-->
+                android:adjustViewBounds="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/pain_1"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:textColor="@color/black"
-                android:padding="2dp"/>
+                android:padding="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.15"
             android:layout_height="fill_parent"
-            android:background="@drawable/custom_button_0"
+            android:background="@drawable/custom_button_e"
             android:onClick="face5"
             android:clickable="true"
             android:focusable="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:id="@+id/layoutbutton5"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
-            <!--<ImageView
+            android:orientation="vertical" >
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/e_transparent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:adjustViewBounds="true"/>-->
+                android:adjustViewBounds="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/pain_2"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:textColor="@color/black"
-                android:padding="2dp"/>
+                android:padding="5dp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.15"
             android:layout_height="fill_parent"
-            android:background="@drawable/custom_button_0"
+            android:background="@drawable/custom_button_d"
             android:onClick="face4"
             android:clickable="true"
             android:focusable="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:id="@+id/layoutbutton4"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" >
-            <!--<ImageView
+            android:orientation="vertical" >
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/d_transparent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:adjustViewBounds="true"/>-->
+                android:adjustViewBounds="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/pain_3"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:textColor="@color/black"
-                android:padding="2dp"/>
+                android:padding="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.15"
             android:layout_height="fill_parent"
-            android:background="@drawable/custom_button_0"
+            android:background="@drawable/custom_button_c"
             android:onClick="face3"
             android:clickable="true"
             android:focusable="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:id="@+id/layoutbutton3"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" >
-            <!--<ImageView
+            android:orientation="vertical" >
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/c_transparent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:adjustViewBounds="true"/>-->
+                android:adjustViewBounds="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/pain_4"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:textColor="@color/black"
-                android:padding="2dp"/>
+                android:padding="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.20"
-            android:background="@drawable/custom_button_0"
+            android:layout_weight="0.15"
+            android:background="@drawable/custom_button_b"
             android:onClick="face2"
             android:clickable="true"
             android:focusable="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:id="@+id/layoutbutton2"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
-            <!--<ImageView
+            android:orientation="vertical">
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/b_transparent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:adjustViewBounds="true"/>-->
+                android:adjustViewBounds="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/pain_5"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:textColor="@color/black"
-                android:padding="2dp"/>
+                android:padding="5dp"/>
         </LinearLayout>
-        <!--<LinearLayout
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="0.15"
             android:layout_height="fill_parent"
-            android:background="@drawable/custom_button_0"
+            android:background="@drawable/custom_button_a"
             android:onClick="face1"
             android:clickable="true"
             android:focusable="true"
@@ -189,11 +174,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/pain_6"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:padding="2dp"/>
-        </LinearLayout>-->
+                android:padding="5dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -39,7 +39,7 @@ public class PainValueFragment extends BaseFragment {
     private Button B3_ext;
     private Button B4_ext;
     private Button B5_ext;
-    private LinearLayout LL1;
+    //private LinearLayout LL1;
     private LinearLayout LL2;
     private LinearLayout LL3;
     private LinearLayout LL4;
@@ -109,14 +109,14 @@ public class PainValueFragment extends BaseFragment {
         d1 = ContextCompat.getDrawable(getContext(), R.drawable.round_button_with_center);
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         final AlertDialog dialog;
-        alert.setTitle("Pain Survey 1");
+        alert.setTitle("Record Your Pain");
 
         LayoutInflater inflater = (LayoutInflater)
                 getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //View v = inflater.inflate(R.layout.popup1, null);
         View v = inflater.inflate(R.layout.transparent_buttons_horizontal, null);
 
-        LL1 = (LinearLayout) v.findViewById(R.id.layoutbutton1);
+        //LL1 = (LinearLayout) v.findViewById(R.id.layoutbutton1);
         LL2 = (LinearLayout) v.findViewById(R.id.layoutbutton2);
         LL3 = (LinearLayout) v.findViewById(R.id.layoutbutton3);
         LL4 = (LinearLayout) v.findViewById(R.id.layoutbutton4);
@@ -198,7 +198,7 @@ public class PainValueFragment extends BaseFragment {
 
     public void enableUnclickedLayouts(int selected) {
         currentSelectedFace = selected;
-        LL1.setEnabled(selected != 1);
+        //LL1.setEnabled(selected != 1);
         LL2.setEnabled(selected != 2);
         LL3.setEnabled(selected != 3);
         LL4.setEnabled(selected != 4);
