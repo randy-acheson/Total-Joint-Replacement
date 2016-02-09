@@ -40,13 +40,12 @@
     <string name="progress_tab_title">Progress</string>
     <string name="feedback_tab_title">Feedback</string>
 
-
-    <string name="pain_6">10. Hurts Worst</string>
-    <string name="pain_5">8. Hurts Whole Lot</string>
-    <string name="pain_4">6. Hurts Even More</string>
-    <string name="pain_3">4. Hurts Little More</string>
-    <string name="pain_2">2. Hurts Little Bit</string>
-    <string name="pain_1">0. No Hurt</string>
+    <string name="pain_6">DEPRECATED</string>
+    <string name="pain_5">5.\r\nExtreme</string>
+    <string name="pain_4">4.\r\nSevere</string>
+    <string name="pain_3">3.\r\nModerate</string>
+    <string name="pain_2">2.\r\nMild</string>
+    <string name="pain_1">1.\r\nNone</string>
 
     <string name="activity_submit_success">Activity entry submitted!</string>
     <string name="activity_submit_failure">Invalid entry. Please try again.</string>
