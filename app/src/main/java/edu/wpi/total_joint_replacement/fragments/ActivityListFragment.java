@@ -36,6 +36,8 @@ public class ActivityListFragment extends BaseFragment {
     private RecordActivityActivity recordActivity;
     private ActivityProgressFragment progressFragment;
 
+    private ActivityEntry entryNew = new ActivityEntry(3, 25, new Date());
+
     List<PhysicalAction> actionList = new ArrayList<>();
 
     @Override

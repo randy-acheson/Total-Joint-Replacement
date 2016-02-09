@@ -26,9 +26,18 @@ public class Database {
     public ArrayList<ActivityEntry> activityEntries = new ArrayList<>();
     Context context = null;
 
+    static final long ONE_MINUTE_IN_MILLIS=60000;
+
+    Calendar date = Calendar.getInstance();
+    long t = date.getTimeInMillis();
+    Date dateTenMins = new Date(t - (10 * ONE_MINUTE_IN_MILLIS));
+
     private static Database instance = null;
 
-    protected Database() {}
+    protected Database() {
+        activityEntries.add(new ActivityEntry(2, 20, dateTenMins));
+        activityEntries.add(new ActivityEntry(1, 10, new Date()));
+    }
 
     public static Database getInstance() {
         if (instance == null) {
@@ -38,7 +47,7 @@ public class Database {
     }
 
     public void readActivityDummyData() throws IOException {
-        activityEntries.add(new ActivityEntry(1, 10, new Date()));
+        //activityEntries.add(new ActivityEntry(1, 10, new Date()));
     }
 
     public void readDummyData() throws IOException {

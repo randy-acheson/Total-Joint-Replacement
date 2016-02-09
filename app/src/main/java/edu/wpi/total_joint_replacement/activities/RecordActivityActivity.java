@@ -46,7 +46,7 @@ public class RecordActivityActivity extends BaseActivity implements ActionBar.Ta
 
         activityFragment.setActivityProgressFragment(progressFragment);
 
-        requiresConfirmationForExit = true;
+        requiresConfirmationForExit = false;
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();

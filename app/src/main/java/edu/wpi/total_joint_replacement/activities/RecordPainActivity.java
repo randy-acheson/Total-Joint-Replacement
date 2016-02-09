@@ -46,7 +46,7 @@ public class RecordPainActivity extends BaseActivity implements ActionBar.TabLis
 
         painFragment.setPainProgressFragment(reportFragment);
 
-        requiresConfirmationForExit = true;
+        requiresConfirmationForExit = false;
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
