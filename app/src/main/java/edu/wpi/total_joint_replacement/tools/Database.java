@@ -4,31 +4,26 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
-import au.com.bytecode.opencsv.CSVReader;
 
 /**
  * Created by Randy on 1/23/2016.
  */
 public class Database {
     public ArrayList<PainEntry> painEntries = new ArrayList<>();
+    public ArrayList<ActivityEntry> activityEntries = new ArrayList<>();
     Context context = null;
 
     private static Database instance = null;
@@ -40,6 +35,10 @@ public class Database {
             instance = new Database();
         }
         return instance;
+    }
+
+    public void readActivityDummyData() throws IOException {
+        activityEntries.add(new ActivityEntry(1, 10, new Date()));
     }
 
     public void readDummyData() throws IOException {

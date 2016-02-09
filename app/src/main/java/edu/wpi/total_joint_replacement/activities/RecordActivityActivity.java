@@ -44,7 +44,7 @@ public class RecordActivityActivity extends BaseActivity implements ActionBar.Ta
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
 
-        //activityFragment.setActivityProgressFragment(progressFragment);
+        activityFragment.setActivityProgressFragment(progressFragment);
 
         requiresConfirmationForExit = true;
 

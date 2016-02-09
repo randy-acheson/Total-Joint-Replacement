@@ -47,4 +47,7 @@
     <string name="pain_3">4. Hurts Little More</string>
     <string name="pain_2">2. Hurts Little Bit</string>
     <string name="pain_1">0. No Hurt</string>
+
+    <string name="activity_submit_success">Activity entry submitted!</string>
+    <string name="activity_submit_failure">Invalid entry. Please try again.</string>
 </resources>

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.wpi.total_joint_replacement.R;
-import edu.wpi.total_joint_replacement.entities.PhysicalAction;
+import edu.wpi.total_joint_replacement.tools.PhysicalAction;
 
 
 public class PhysicalActionsNewFragment extends BaseFragment {
@@ -42,7 +42,7 @@ public class PhysicalActionsNewFragment extends BaseFragment {
     }
 
     public void saveActivity(){
-        PhysicalAction.activities.add(new PhysicalAction(name.getEditableText().toString(), desc.getEditableText().toString(), ""));
+        //PhysicalAction.activities.add(new PhysicalAction(name.getEditableText().toString(), desc.getEditableText().toString(), ""));
         name.setText("");
         desc.setText("");
     }

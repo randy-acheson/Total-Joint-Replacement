@@ -21,11 +21,10 @@ import java.util.Date;
 import java.util.List;
 
 import edu.wpi.total_joint_replacement.R;
+import edu.wpi.total_joint_replacement.tools.ActivityEntry;
 import edu.wpi.total_joint_replacement.tools.Database;
 import edu.wpi.total_joint_replacement.tools.Joint;
 import edu.wpi.total_joint_replacement.tools.PainEntry;
-
-//import android.widget.NumberPicker;
 
 
 public class ActivityProgressFragment extends BaseFragment {
@@ -52,7 +51,7 @@ public class ActivityProgressFragment extends BaseFragment {
         db.setContext(getActivity().getApplicationContext());
 
         try {
-            db.readDummyData();
+            db.readActivityDummyData();
         }
         catch (IOException e) {
             Log.d("Exception", "IOException");
@@ -68,26 +67,22 @@ public class ActivityProgressFragment extends BaseFragment {
 
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
-        graph.getViewport().setMaxY(10);
+        graph.getViewport().setMaxY(100);
 
         return view;
     }
 
-    public BarGraphSeries<DataPoint> createGraph(Joint joint, Database.TimeValue timeSetting) {
-        //ArrayList<PainEntry> painEntries = Database.getInstance().painEntries;
-        ArrayList<PainEntry> painEntries = Database.getInstance().getAveragedValues(timeSetting, joint, 1);
+    public BarGraphSeries<DataPoint> createGraph() {
+        ArrayList<ActivityEntry> activityEntries = Database.getInstance().activityEntries;
 
         List<DataPoint> points = new ArrayList<>();
 
-        for (PainEntry entry : painEntries) {
-
-            if (entry.joint == joint) {
-                points.add(new DataPoint(entry.time, entry.painLevel));
-            }
+        for (ActivityEntry entry : activityEntries) {
+            points.add(new DataPoint(entry.time, entry.duration));
         }
 
-        firstDate = painEntries.get(0).time;
-        lastDate = painEntries.get(painEntries.size() - 1).time;
+        firstDate = activityEntries.get(0).time;
+        lastDate = activityEntries.get(activityEntries.size() - 1).time;
 
         DataPoint[] pointArray = new DataPoint[points.size()];
         pointArray = points.toArray(pointArray);
@@ -105,12 +100,11 @@ public class ActivityProgressFragment extends BaseFragment {
     public void makeSeries(Database.TimeValue timeSetting){
         currentTimeAverage = timeSetting;
 
-        BarGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
-        series.setTitle("Back");
+        BarGraphSeries<DataPoint> series = createGraph();
+        series.setTitle("Activity");
         series.setColor(Color.BLUE);
         graph.addSeries(series);
         graph.getViewport().setMinX(firstDate.getTime());
         graph.getViewport().setMaxX(lastDate.getTime());
     }
-
 }
