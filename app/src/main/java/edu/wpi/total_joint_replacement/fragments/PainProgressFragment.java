@@ -38,8 +38,8 @@ public class PainProgressFragment extends BaseFragment {
     }
     private GraphView graph;
     private Calendar cal;
-    private Date firstDate;
-    private Date lastDate;
+    private long firstDate = new Date().getTime();
+    private long lastDate;
     private Database.TimeValue currentTimeAverage = Database.TimeValue.DAY;
 
 
@@ -91,9 +91,8 @@ public class PainProgressFragment extends BaseFragment {
                 points.add(new DataPoint(entry.time, entry.painLevel));
             }
         }
-
-        firstDate = painEntries.get(0).time;
-        lastDate = painEntries.get(painEntries.size() - 1).time;
+        firstDate = Math.min(firstDate, painEntries.get(0).time.getTime());
+        lastDate = Math.max(lastDate, painEntries.get(painEntries.size() - 1).time.getTime());
 
         DataPoint[] pointArray = new DataPoint[points.size()];
         pointArray = points.toArray(pointArray);
@@ -119,8 +118,6 @@ public class PainProgressFragment extends BaseFragment {
         LineGraphSeries<DataPoint> series = createGraph(Joint.BACK, currentTimeAverage);
         series.setTitle("Back");
         series.setColor(Color.BLUE);
-        graph.getViewport().setMinX(firstDate.getTime());
-        graph.getViewport().setMaxX(lastDate.getTime());
 
         /*LineGraphSeries<DataPoint> series2 = createGraph(Joint.RIGHT_HIP, currentTimeAverage);
         series2.setTitle("Right Hip");
@@ -130,8 +127,8 @@ public class PainProgressFragment extends BaseFragment {
         LineGraphSeries<DataPoint> series3 = createGraph(Joint.RIGHT_KNEE, currentTimeAverage);
         series3.setTitle("Right Knee");
         series3.setColor(Color.RED);
-        graph.getViewport().setMinX(Math.min(firstDate.getTime(), graph.getViewport().getMinX(true)));
-        graph.getViewport().setMaxX(Math.max(lastDate.getTime(), graph.getViewport().getMaxX(true)));
+        graph.getViewport().setMinX(firstDate);
+        graph.getViewport().setMaxX(lastDate);
 
 
         //generateBackground(10.0, Color.argb(41, 193, 66, 66));
@@ -145,8 +142,8 @@ public class PainProgressFragment extends BaseFragment {
 
     private void generateBackground(double lineHeight, int color) {
         List<DataPoint> pointsbelow2 = new ArrayList<>();
-        pointsbelow2.add(new DataPoint(firstDate.getTime() - 1000000, lineHeight));
-        pointsbelow2.add(new DataPoint(lastDate.getTime() + 1000000, lineHeight));
+        pointsbelow2.add(new DataPoint(firstDate - 1000000, lineHeight));
+        pointsbelow2.add(new DataPoint(lastDate + 1000000, lineHeight));
         DataPoint[] pointArray = new DataPoint[pointsbelow2.size()];
         pointArray = pointsbelow2.toArray(pointArray);
 

@@ -63,6 +63,7 @@ public class ActivityProgressFragment extends BaseFragment {
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
         graph.getGridLabelRenderer().setNumHorizontalLabels(3);
 
+        graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
         graph.getViewport().setMaxY(100);
@@ -87,20 +88,12 @@ public class ActivityProgressFragment extends BaseFragment {
 
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(pointArray);
 
-        /*BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });*/
-
         return series;
     }
 
     public void resetGraph() {
-        //graph.removeAllSeries();
-        //makeSeries(currentTimeAverage);
+        graph.removeAllSeries();
+        makeSeries(currentTimeAverage);
     }
 
     public void makeSeries(Database.TimeValue timeSetting) {
@@ -110,8 +103,7 @@ public class ActivityProgressFragment extends BaseFragment {
         series.setTitle("Activity");
         series.setColor(Color.BLUE);
         graph.addSeries(series);
-        //graph.getViewport().setXAxisBoundsManual(false);
-        //graph.getViewport().setMinX(firstDate.getTime());
-        //graph.getViewport().setMaxX(lastDate.getTime());
+        graph.getViewport().setMinX(firstDate.getTime());
+        graph.getViewport().setMaxX(lastDate.getTime());
     }
 }
